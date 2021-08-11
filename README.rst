@@ -17,10 +17,9 @@ Intended Features
 `My wishlist for a font that does not seem to exist yet <http://trevorldavis.com/piecepackr/unicode-piecepack-diagrams.html#piecepack-font-wishlist>`_:  
 
 * A monoscale font.
-* Most/all characters will be square (aka "fullwidth").
+* Characters intended for use in diagrams will generally be square (aka "fullwidth").
 
-  * Hence this font will be optimized for rendering game diagrams (and not text).
-  * Although perhaps some blocks (Basic Latin) should be "halfwidth" to partially support text rendering?
+  * Some blocks such as Basic Latin will be "halfwidth" to better support text rendering.
 
 * Needs to have the important piecepack rank/suit Unicode symbols including support for all rotated versions of the glyphs. These symbols must still look nice when combining with Combining Diacritical Marks used as directional marks plus an enclosing circle, square, diamond, and/or triangle. 
 * Would also be nice to include the relevant "rotated" Unicode 12.0 chess piece glyphs (useful as piecapack Crowns and pawns).
@@ -49,13 +48,24 @@ The font will aim to support making diagrams for every game system supported by 
 
 * [ ] others?
 
+Font Coverage
+-------------
+
+8x16 "Halfwidth"
+~~~~~~~~~~~~~~~~
+
+* `Basic Latin <https://en.wikipedia.org/wiki/Basic_Latin_(Unicode_block)>`_
+
+  * All non-control code points
+
+16x16 "Fullwidth"
+~~~~~~~~~~~~~~~~~
+
 Roadmap
 -------
 
-* [ ] `Basic Latin <https://en.wikipedia.org/wiki/Basic_Latin_(Unicode_block)>`_
+* [X] `Basic Latin <https://en.wikipedia.org/wiki/Basic_Latin_(Unicode_block)>`_
 
-  + Halfwidth or Fullwidth?  The diagrams won't work unless the "space" is fullwidth unless
-    for that application we instead switch to the "Ideographic Space" (U+3000)...
   + Include Other common scripts?
   + [ ] Halfwidth and Fullwidth Forms?
 
@@ -124,15 +134,32 @@ Roadmap
 * `A list of glyphs used by ppgames::cat_piece() <https://github.com/piecepackr/ppgames/blob/master/raw-data/sysdata.R>`_
 * `A list of Unicode piecepack symbols <https://trevorldavis.com/piecepackr/unicode-piecepack-symbols.html>`_
 
+
+Build dependencies
+------------------
+
+* `R <https://cran.r-project.org/>`_
+
+  * Within R install R package dependencies::
+
+      install.packages(c("remotes", "targets"))
+      remotes::install_github("trevorld/bittermelon")
+      remotes::install_github("trevorld/hexfont")
+
+* `Perl <https://www.perl.org/>`_
+
+Build fonts from scratch
+------------------------
+
+In R_::
+
+    targets::tar_make()
+
+
 Target build chain
 ------------------
 
-* Write R code to generate 16x16 glyphs using `{bittermelon} <https://trevorld/bittermelon>`_ and `{hexfont} <https://trevorld/hexfont>`_ 
-
-  * Will be a derivative of `GNU Unifont <https://www.unifoundry.com/unifont/index.html>`_
-  * Open-source dual-licensed under GPL (>= 2) with Font Exception OR SIL Open Font License
-
-* Save as "hex" font file
+* Write R code to generate 16x16 glyphs using `{bittermelon} <https://trevorld/bittermelon>`_ and `{hexfont} <https://trevorld/hexfont>`_ and save as "hex" font file
 * Use/adapt GNU Unifont scripts to generate other font formats from "hex" font file
 
   * "bdf" via `hex2bdf`
