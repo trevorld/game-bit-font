@@ -56,7 +56,7 @@ Font Coverage
 
 * `Basic Latin <https://en.wikipedia.org/wiki/Basic_Latin_(Unicode_block)>`_
 
-  + `View png of glyphs <png/00.png>`_
+  + `View png of glyphs <png/00.png>`__
   + All non-control code points
 
 16x16 "Fullwidth"
@@ -64,26 +64,26 @@ Font Coverage
 
 * `Block Elements <https://en.wikipedia.org/wiki/Block_Elements>`_
 
-  + `View png of glyphs <png/25.png>`_
+  + `View png of glyphs <png/25.png>`__
   + All code points.
   + Note you'll need to use the fullwidth "Ideographic Space" U+3000 
     instead of a normal "Space" U+0020 when building block element diagrams.
 
 * `CJK Symbols and Punctuation <https://en.wikipedia.org/wiki/CJK_Symbols_and_Punctuation>`_
 
-  + `View png of glyphs <png/30.png>`_
+  + `View png of glyphs <png/30.png>`__
   + U+3000 "Ideographic Space" is the fullwidth space.
   + U+302E "Hangul Single Dot Tone Mark" is only combining left dot.
   + U+302F "Hangul Double Dot Tone Mark" is only combining left double dot.
 
 * `Halfwidth and Fullwidth Forms <https://en.wikipedia.org/wiki/Halfwidth_and_Fullwidth_Forms_(Unicode_block)>`_
 
-  + `View png of glyphs <png/FF.png>`_
+  + `View png of glyphs <png/FF.png>`__
   + Just the fullwidth versions of the ASCII characters.
 
 * `Chess Symbols <https://en.wikipedia.org/wiki/Chess_Symbols>`_
 
-  + `View png of glyphs <png/1FA.png>`_
+  + `View png of glyphs <png/1FA.png>`__
   + All code points.
   + Note this block is just "fairy" chess pieces and Xiangqi pieces
 
@@ -173,7 +173,7 @@ Build dependencies
 
 * `Perl <https://www.perl.org/>`_
 
-  + Install the following modules with tools such as `cpan`::
+  + Install the following modules with tools such as `cpan`:
 
     - `GD`
 
