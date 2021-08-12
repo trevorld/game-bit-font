@@ -15,9 +15,9 @@ fontforge_sfd <- function(hex_file, combining_file, font_name, version, copyrigh
 
     cmd <- glue::glue(
       'Open("{sfd_file}"); ',
-      'SetFontNames("{psname}Medium", ',
-          '"{font_name}", "{font_name}", "Medium", ',
-          '{copyright}); ',
+      'SetFontNames("{psname}Regular", ',
+          '"{font_name}", "{font_name}", "Regular", ',
+          '"{copyright}"); ',
       'SetTTFName({ttf_lang},  2, "Regular"); ',
       'SetTTFName({ttf_lang},  5, "Version {version}"); ',
       'SetTTFName({ttf_lang}, 11, "{website}"); ',
