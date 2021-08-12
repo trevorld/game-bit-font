@@ -3,8 +3,10 @@
 # unifont = tar_read("unifont")
 
 library("targets")
-# tar_option_set(packages = c("bittermelon", "hexfont"),
-#               debug = "unifont")
+
+if (packageVersion("bittermelon") < "0.1.0-39")
+    tar_throw_validate("{bittermelon} too old.  Please upgrade.")
+
 source("R/ttf.R")
 tar_option_set(packages = c("bittermelon", "glue", "hexfont"))
 list(
@@ -13,6 +15,7 @@ list(
     tar_target(copyright, "Copyright (C) 1998-2021 Trevor L Davis, Roman Czyborra, Paul Hardy, et al. License: SIL Open Font License version 1.1 and GPLv2+: GNU GPL version 2 or later <http://gnu.org/licenses/gpl.html> with the GNU Font Embedding Exception."),
     tar_target(unifont, hexfont::unifont()),
     tar_target(basic_latin, unifont[block2ucp("Basic Latin")]),
+    tar_target(latin1_supplement, unifont[block2ucp("Latin-1 Supplement")]),
     tar_target(
         block_elements,
         {
@@ -32,6 +35,7 @@ list(
     tar_target(
         font,
         c(basic_latin, # U+0020
+          latin1_supplement, # U+00A0
           block_elements, # U+2580
           cjk_symbols_and_punctuation, # U+3000
           halfwidth_and_fullwidth_forms, # U+FF01

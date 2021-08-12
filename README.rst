@@ -54,13 +54,22 @@ Font Coverage
 8x16 "Halfwidth"
 ~~~~~~~~~~~~~~~~
 
+Intended for writing text:
+
 * `Basic Latin <https://en.wikipedia.org/wiki/Basic_Latin_(Unicode_block)>`_
+
+  + `View png of glyphs <png/00.png>`__
+  + All non-control code points
+
+* `Latin-1 Supplement <https://en.wikipedia.org/wiki/Latin-1_Supplement_(Unicode_block)>`_
 
   + `View png of glyphs <png/00.png>`__
   + All non-control code points
 
 16x16 "Fullwidth"
 ~~~~~~~~~~~~~~~~~
+
+Intended for making game diagrams:
 
 * `Block Elements <https://en.wikipedia.org/wiki/Block_Elements>`_
 
@@ -92,12 +101,13 @@ Roadmap
 
 * [X] `Basic Latin <https://en.wikipedia.org/wiki/Basic_Latin_(Unicode_block)>`_
 
-  + Include Other common scripts?
+  + [X] `Latin-1 Supplement <https://en.wikipedia.org/wiki/Latin-1_Supplement_(Unicode_block)>`_
   + [X] `Halfwidth and Fullwidth Forms <https://en.wikipedia.org/wiki/Halfwidth_and_Fullwidth_Forms_(Unicode_block)>`_?
 
     - Just the Latin and Punctuation
 
   + [ ] Superscripts and Subscripts?
+  + Include Other common scripts?
 
 * [ ] `Box Drawing <https://en.wikipedia.org/wiki/Box_Drawing_(Unicode_block)>`_
 * [X] `Block Elements <https://en.wikipedia.org/wiki/Block_Elements>`_
