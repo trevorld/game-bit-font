@@ -180,10 +180,18 @@ Build dependencies
 
 * `Perl <https://www.perl.org/>`_
 
-  + Install the following modules with tools such as `cpan`:
+  + Install the following modules with tools such as ``cpan``:
 
-    - `GD`
+    - ``GD``
 
-      + May need to install `libgd-dev`
+      + May need to install ``libgd-dev``
 
 * `FontForge <https://fontforge.org/en-US/>`__
+
+GNU Unifont
+-----------
+
+* This font is a derivative of `GNU Unifont <http://unifoundry.com/unifont/index.html>`_.
+* It uses a subset of glyphs from GNU Unifont.
+* See `ChangeLog.rst <ChangeLog.rst>`_ for a list of differences between the glyphs in this font and GNU Unifont.
+* It also adapts the bdf/ttf font build chains from GNU Unifont.
