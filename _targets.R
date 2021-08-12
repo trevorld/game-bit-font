@@ -5,11 +5,14 @@
 library("targets")
 # tar_option_set(packages = c("bittermelon", "hexfont"),
 #               debug = "unifont")
-tar_option_set(packages = c("bittermelon", "hexfont"))
+source("R/ttf.R")
+tar_option_set(packages = c("bittermelon", "glue", "hexfont"))
 list(
+    tar_target(font_name, "Game Bit Mono"),
     tar_target(version, "0.1.0-3"),
+    tar_target(copyright, "Copyright (C) 1998-2021 Trevor L Davis, Roman Czyborra, Paul Hardy, et al. License: SIL Open Font License version 1.1 and GPLv2+: GNU GPL version 2 or later <http://gnu.org/licenses/gpl.html> with the GNU Font Embedding Exception."),
     tar_target(unifont, hexfont::unifont()),
-    tar_target( basic_latin, unifont[block2ucp("Basic Latin")]),
+    tar_target(basic_latin, unifont[block2ucp("Basic Latin")]),
     tar_target(
         block_elements,
         {
@@ -36,7 +39,7 @@ list(
         )
     ),
     tar_target(
-        font_file,
+        hex_file,
         {
             write_hex(font, "game-bit-mono.hex")
             "game-bit-mono.hex"
@@ -46,15 +49,29 @@ list(
     tar_target(
         bdf_file,
         {
-            file <- gsub(".hex$", ".bdf", font_file)
+            bdf_file <- gsub(".hex$", ".bdf", hex_file)
             system2("perl",
                     c("bin/hex2bdf",
-                      "-f", '"Game Bit Mono"',
+                      "-f", shQuote(font_name),
                       "-v", version,
-                      "-c", '"Copyright (C) 1998-2021 Trevor L Davis, Roman Czyborra, Paul Hardy, et al. License: SIL Open Font License version 1.1 and GPLv2+: GNU GPL version 2 or later <http://gnu.org/licenses/gpl.html> with the GNU Font Embedding Exception."'),
-                    stdin = font_file,
-                    stdout = file)
-            file
+                      "-c", shQuote(copyright)),
+                    stdin = hex_file,
+                    stdout = bdf_file)
+            bdf_file
+        },
+        format = "file"
+    ),
+    tar_target(
+        combining_file,
+        {
+            ucp <- names(font)
+            ucp <- ucp[which(is_combining_character(ucp))]
+            ucp <- ucp_sort(ucp)
+            combining <- font[ucp]
+            widths <- bm_widths(combining)
+            txt <- paste0(substr(ucp, 3, nchar(ucp)), ":", -widths)
+            writeLines(txt, "combining.txt")
+            "combining.txt"
         },
         format = "file"
     ),
@@ -66,12 +83,27 @@ list(
             png_files <- paste0("png/", pages, ".png")
             for (i in seq_along(pages)) {
                 system2("perl",
-                        c("bin/unihex2png", "-i", font_file,
+                        c("bin/unihex2png", "-i", hex_file,
                           "-p", pages[i],
                           "-o", png_files[i]))
             }
             png_files
         },
+        format = "file"
+    ),
+    tar_target(
+        sfd_file,
+        fontforge_sfd(hex_file, combining_file, font_name, version, copyright),
+        format = "file"
+    ),
+    # tar_target(
+    #     ttf_sbit_file,
+    #     fontforge_sbit_ttf(bdf_file, version),
+    #     format = "file"
+    # ),
+    tar_target(
+        ttf_file,
+        fontforge_outline_ttf(sfd_file),
         format = "file"
     )
 )

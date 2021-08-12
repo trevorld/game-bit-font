@@ -56,7 +56,10 @@
 #      request of Leroy Vargas-Ortiz.
 #    - Scale $xoffset by $pixel for combining characters.
 #
-
+# 11 August 2021 [Trevor L Davis]
+#    - Adjust names for Game Bit Mono
+#    - Pass version number as second positional argument
+#    - Use "U+HEX" as "charname"
 #
 # Read the list of combining characters and the x-axis (horizontal)
 # offset of each one.
@@ -72,6 +75,11 @@ if ($#ARGV < 0) {
 }
 else {
    open (A, "<", $ARGV[0]) or die ("Cannot open specified combining file for input.\n");
+}
+if ($#ARGV == 1) {
+    $version = $ARGV[1]
+} else {
+    $version = "1.00";
 }
 $maxcombining = 0;
 while (<A>) {
@@ -139,19 +147,15 @@ $bitmask = 25;  # round in x (doesn't really work), corner point selected
 
 print << "END" or die ("Cannot print to stdout.\n");
 SplineFontDB: 1.0
-FontName: unifont
-FullName: GNU Unifont
-FamilyName: unifont
+FontName: GameBitMono
+FullName: Game Bit Mono
+FamilyName: Game Bit Mono
 Weight: Medium
-Comments: Created from GNU Unifont
-Comments: with Luis Alejandro Gonzalez Miranda's Perl and FontForge scripts.
-Comments: See http://www.lgm.cl/trabajos/unifont/index.en.html for
-Comments: information on Luis' scripts.  See
-Comments: http://savannah.gnu.org/projects/unifont,
-Comments: http://czyborra.com/unifont, and
-Comments: http://unifoundry.com/unifont.html for information on GNU Unifont.
-Comments: See http://fontforge.sf.net for information on FontForge.
-Version: 1.00
+Comments: Game Bit Mono is a derivative of GNU Unifont
+Comments: See https://github.com/trevorld/game-bit-mono for info on Game Bit Mono.
+Comments: See http://unifoundry.com/unifont.html for info on GNU Unifont.
+Comments: See https://fontforge.org for info on FontForge.
+Version: $version
 ItalicAngle: 0
 UnderlinePosition: -100
 UnderlineWidth: 40
@@ -228,7 +232,7 @@ sub outline {
 	$ptwidth  = $pixel * $width;
 	$xoffset  = 0;
 	if ( $c =~ m/^[0-9A-Fa-f]+$/ ) {
-		$charname = "uni$c";
+		$charname = "U+$c";
 		$codepoint = hex ($c);
 		if ($combining[ $codepoint ]) {
 			$xoffset = $x_origin[ $codepoint ] * $pixel;

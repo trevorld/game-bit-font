@@ -40,6 +40,8 @@ if (not $vpixels) {
 if (not $version) {
    $version = "1.0";
 }
+$font_family = $font_name;
+$font_name =~ tr/ //ds;
 
 $point_size   = $vpixels;
 $point_size10 = 10 * $point_size;
@@ -58,7 +60,7 @@ COPYRIGHT \"${copyright}\"
 FONT_VERSION \"${version}\"
 FONT_TYPE \"Bitmap\"
 FOUNDRY \"GNU\"
-FAMILY_NAME \"${font_name}\"
+FAMILY_NAME \"${font_family}\"
 WEIGHT_NAME \"Medium\"
 SLANT \"R\"
 SETWIDTH_NAME \"Normal\"

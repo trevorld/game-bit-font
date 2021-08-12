@@ -160,14 +160,21 @@ Roadmap
 * `A list of Unicode piecepack symbols <https://trevorldavis.com/piecepackr/unicode-piecepack-symbols.html>`_
 
 
+To build output from scratch
+----------------------------
+
+In R_::
+
+    targets::tar_make()
+
 Build dependencies
-------------------
+~~~~~~~~~~~~~~~~~~
 
 * `R <https://cran.r-project.org/>`_
 
   * Within R install R package dependencies::
 
-      install.packages(c("remotes", "targets"))
+      install.packages(c("glue", "remotes", "targets"))
       remotes::install_github("trevorld/bittermelon")
       remotes::install_github("trevorld/hexfont")
 
@@ -179,19 +186,4 @@ Build dependencies
 
       + May need to install `libgd-dev`
 
-Build output from scratch
--------------------------
-
-In R_::
-
-    targets::tar_make()
-
-
-Target build chain
-------------------
-
-* Write R code to generate 16x16 glyphs using `{bittermelon} <https://trevorld/bittermelon>`_ and `{hexfont} <https://trevorld/hexfont>`_ and save as "hex" font file
-* Use/adapt GNU Unifont scripts to generate other font formats from "hex" font file
-
-  * "bdf" via `hex2bdf`
-  * "ttf" via a more complicated chain involving `FontForge <https://fontforge.org/en-US/>`_
+* `FontForge <https://fontforge.org/en-US/>`__
