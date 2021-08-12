@@ -71,19 +71,24 @@ Intended for writing text:
 
 Intended for making game diagrams:
 
+* `Box Drawing <https://en.wikipedia.org/wiki/Box_Drawing_(Unicode_block)>`_
+
+  + `View png of glyphs <png/25.png>`__
+  + All code points.
+
 * `Block Elements <https://en.wikipedia.org/wiki/Block_Elements>`_
 
   + `View png of glyphs <png/25.png>`__
   + All code points.
-  + Note you'll need to use the fullwidth "Ideographic Space" U+3000 
-    instead of a normal "Space" U+0020 when building block element diagrams.
 
 * `CJK Symbols and Punctuation <https://en.wikipedia.org/wiki/CJK_Symbols_and_Punctuation>`_
 
   + `View png of glyphs <png/30.png>`__
-  + U+3000 "Ideographic Space" is the fullwidth space.
-  + U+302E "Hangul Single Dot Tone Mark" is only combining left dot.
-  + U+302F "Hangul Double Dot Tone Mark" is only combining left double dot.
+  + Three code points:
+
+    - U+3000 "Ideographic Space" is the fullwidth space.
+    - U+302E "Hangul Single Dot Tone Mark" is only combining left dot.
+    - U+302F "Hangul Double Dot Tone Mark" is only combining left double dot.
 
 * `Halfwidth and Fullwidth Forms <https://en.wikipedia.org/wiki/Halfwidth_and_Fullwidth_Forms_(Unicode_block)>`_
 
@@ -109,7 +114,7 @@ Roadmap
   + [ ] Superscripts and Subscripts?
   + Include Other common scripts?
 
-* [ ] `Box Drawing <https://en.wikipedia.org/wiki/Box_Drawing_(Unicode_block)>`_
+* [X] `Box Drawing <https://en.wikipedia.org/wiki/Box_Drawing_(Unicode_block)>`_
 * [X] `Block Elements <https://en.wikipedia.org/wiki/Block_Elements>`_
 
 * [ ] `Combining Diacritical Marks <https://en.wikipedia.org/wiki/Combining_Diacritical_Marks>`_

@@ -2,7 +2,12 @@ Differences from GNU Unifont
 ----------------------------
 
 * Covers much fewer glyphs than GNU Unifont
-* Block Elements were converted to "fullwidth"
+* If not mentioned below glyph is unchanged from GNU Unifont
+* "Box Drawing" glyphs were recreated from scratch
 
-  * "Shade" glyphs were concatenated with themselves
-  * The other block element glyphs had their columns doubled.
+  + Glyphs are now fullwidth and the lines are now "centered".
+
+* "Block Elements" are now "fullwidth"
+
+  + "Shade" glyphs were concatenated with themselves
+  + The other block element glyphs had their columns doubled.
