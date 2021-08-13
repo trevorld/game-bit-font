@@ -1,7 +1,7 @@
 create_miscellaneous_symbols <- function(unifont,
-                                         general_punctuation, combining_diacritical_marks_for_symbols,
+                                         general_punctuation, geometric_shapes,
                                          mathematical_operators,
-                                         braille_patterns, katakana) {
+                                         braille_patterns, misc_dots) {
 
     blm <- bm_list()
 
@@ -23,13 +23,19 @@ create_miscellaneous_symbols <- function(unifont,
         blm[[ucp]] <- bm_shift(blm[[ucp]], right = 1L)
 
     # Dice
-    square <- combining_diacritical_marks_for_symbols[["U+20DE"]]
-    blm[["U+2680"]] <- bm_overlay(square, katakana[["U+30FB"]])
+    square <- geometric_shapes[["U+25A1"]]
+    blm[["U+2680"]] <- bm_overlay(square, misc_dots[["U+30FB"]])
     blm[["U+2681"]] <- bm_overlay(square, braille_patterns[["U+280C"]])
     blm[["U+2682"]] <- bm_overlay(square, mathematical_operators[["U+22F0"]])
     blm[["U+2683"]] <- bm_overlay(square, braille_patterns[["U+282D"]])
     blm[["U+2684"]] <- bm_overlay(square, general_punctuation[["U+2059"]])
     blm[["U+2685"]] <- bm_overlay(square, braille_patterns[["U+283F"]])
+
+    # Go Markers
+    blm[["U+2686"]] <- bm_overlay(geometric_shapes[["U+25CB"]], misc_dots[["U+1D16D"]])
+    blm[["U+2687"]] <- bm_overlay(geometric_shapes[["U+25CB"]], braille_patterns[["U+2812"]])
+    blm[["U+2688"]] <- bm_mask(geometric_shapes[["U+25CF"]], misc_dots[["U+1D16D"]])
+    blm[["U+2689"]] <- bm_mask(geometric_shapes[["U+25CF"]], braille_patterns[["U+2812"]])
 
     blm
 }

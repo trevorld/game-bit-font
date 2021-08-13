@@ -32,6 +32,10 @@ The font will aim to support making diagrams for every game system supported by 
 
 * [ ] `checkers <https://en.wikipedia.org/wiki/English_draughts>`_
 * [X] `chess <https://en.wikipedia.org/wiki/Chess>`_
+
+  + U+2654 through U+265F are "standard" chess pieces
+  + "Chess Symbols" block has Xiangqi and "fairy" chess pieces
+
 * [X] `dice <https://en.wikipedia.org/wiki/Dice>`_
 
   + U+2680 through U+2685 are "standard" die faces
@@ -53,7 +57,11 @@ The font will aim to support making diagrams for every game system supported by 
   + 8 Pips: U+2812 U+20DE U+20E8
   + 9 Pips: U+22EF U+20DE U+20E8
 
-* [ ] `go <https://en.wikipedia.org/wiki/Go_(game)>`_
+* [X] `go <https://en.wikipedia.org/wiki/Go_(game)>`_
+
+  + U+25CF is "black circle" and U+25CB" is "white circle"
+  + U+2686 through U+2689 are "Go markers"
+
 * [ ] `Icehouse pieces <https://en.wikipedia.org/wiki/Icehouse_pieces>`_
 * [ ] `piecepack <https://www.ludism.org/ppwiki>`_
 
@@ -64,6 +72,11 @@ The font will aim to support making diagrams for every game system supported by 
   + [ ] stackpack subpack?
   + [ ] piecepack matchsticks?
   + [ ] piecepack pyramids?
+
+* [X] miscellaneous abstracts
+
+  + Can use any of the above game pieces
+  + "Geometric Shapes" block has a variety of shapes that can be used for abstracts
 
 * [ ] others?
 
@@ -107,17 +120,22 @@ Intended for making game diagrams:
 
     - U+22EF, U+22F0, and U+22F1 are various ellipses used for pips
 
-* `Box Drawing <https://en.wikipedia.org/wiki/Box_Drawing_(Unicode_block)>`_ and `Block Elements <https://en.wikipedia.org/wiki/Block_Elements>`_
+* `Box Drawing <https://en.wikipedia.org/wiki/Box_Drawing_(Unicode_block)>`_, `Block Elements <https://en.wikipedia.org/wiki/Block_Elements>`_, and `Geometric Shapes <https://en.wikipedia.org/wiki/Geometric_Shapes>`__
 
   + `View png of glyphs <png/25.png>`__
-  + All code points.
+  + All "Box Drawing" and "Block Elements" code points.
+  + 18 code points in "Geometric Shapes"
+
+    - Shapes can be used for various abstracts.
+    - In particular use "Black Circle" and "White Circle" for go stones in diagrams.
 
 * `Miscellaneous Symbols <https://en.wikipedia.org/wiki/Miscellaneous_Symbols>`_
 
   + `View png of glyphs <png/26.png>`__
-  + 18 code points:
+  + 22 code points:
 
     - The six standard die faces.
+    - The four "go markers".
     - The twelve basic chess ranks.
 
 * `Braille Patterns <https://en.wikipedia.org/wiki/Braille_Patterns>`_
