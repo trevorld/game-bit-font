@@ -49,8 +49,8 @@ The font will aim to support making diagrams for every game system supported by 
   + 4 Pips: U+282D
   + 5 Pips: U+2059
   + 6 Pips: U+283F / U+3000 U+20DE U+20E8
-  + 7 Pips: U+2059 U+302E U+1D16D / U+3000 U+20DE U+20E8
-  + 8 Pips: U+2025 U+20DE U+20E8
+  + 7 Pips: U+2059 U+302E U+1D16D / U+30FB U+20DE U+20E8
+  + 8 Pips: U+2025 U+20DE U+20E8 OR U+3000 U+20DE U+20E8 U+302E U+1D16D
   + 9 Pips: U+22EF U+20DE U+20E8
 
 * [ ] `go <https://en.wikipedia.org/wiki/Go_(game)>`_
