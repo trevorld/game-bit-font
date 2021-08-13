@@ -50,7 +50,7 @@ The font will aim to support making diagrams for every game system supported by 
   + 5 Pips: U+2059
   + 6 Pips: U+283F / U+3000 U+20DE U+20E8
   + 7 Pips: U+2059 U+302E U+1D16D / U+30FB U+20DE U+20E8
-  + 8 Pips: U+2025 U+20DE U+20E8 OR U+3000 U+20DE U+20E8 U+302E U+1D16D
+  + 8 Pips: U+2812 U+20DE U+20E8
   + 9 Pips: U+22EF U+20DE U+20E8
 
 * [ ] `go <https://en.wikipedia.org/wiki/Go_(game)>`_
@@ -93,10 +93,9 @@ Intended for making game diagrams:
 * `General Punctuation <https://en.wikipedia.org/wiki/General_Punctuation>`_ and `Combining Diacritical Marks for Symbols <https://en.wikipedia.org/wiki/Combining_Diacritical_Marks_for_Symbols>`_
 
   + `View png of glyphs <png/20.png>`__
-  + 5 code points:
+  + 4 code points:
 
-    - U+2025 "Two Dot Leader" for certain pips
-    - U+2059 "Five Dot Punctuation" for five pips
+    - U+2059 "Five Dot Punctuation" for certain pips
     - U+20DB "Combining Three Dots Above" for certain pips
     - U+20DE "Combining Enclosing Square" can be used to make new dice
     - U+20E8 "Combining Triple Under Dot" for certain pips

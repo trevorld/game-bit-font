@@ -16,7 +16,7 @@ source("R/ttf.R")
 tar_option_set(packages = c("bittermelon", "glue", "grid", "hexfont"))
 # tar_option_set(debug = "font")
 list(
-    tar_target(version, "0.1.0-6"),
+    tar_target(version, "0.1.0-7"),
     tar_target(font_name, "Game Bit Mono"),
     tar_target(copyright, "Copyright (C) 1998-2021 Trevor L Davis, Roman Czyborra, Paul Hardy, et al. License: SIL Open Font License version 1.1 and GPLv2+: GNU GPL version 2 or later <http://gnu.org/licenses/gpl.html> with the GNU Font Embedding Exception."),
     tar_target(unifont, hexfont::unifont()),
@@ -24,9 +24,7 @@ list(
     tar_target(latin1_supplement, unifont[block2ucp("Latin-1 Supplement")]),
     tar_target(general_punctuation, {
         blm <- bm_list()
-        twodot <- quincunx <- bm_bitmap(matrix(0L, nrow = 16L, ncol = 16L))
-        twodot[c(8:9), c(4:5, 12:13)] <- 1L
-        blm[["U+2025"]] <- twodot
+        quincunx <- bm_bitmap(matrix(0L, nrow = 16L, ncol = 16L))
         quincunx[c(4:5, 12:13), 4:5] <- 1L
         quincunx[c(4:5, 12:13), 12:13] <- 1L
         quincunx[8:9, 8:9] <- 1L
