@@ -11,6 +11,13 @@ The goal of this project is to create a `monospaced <https://en.wikipedia.org/wi
 
 .. contents::
 
+Font Files
+----------
+
+* `game-bit-mono.bdf <https://raw.githubusercontent.com/trevorld/game-bit-mono/main/game-bit-mono.bdf>`_
+* `game-bit-mono.hex <https://raw.githubusercontent.com/trevorld/game-bit-mono/main/game-bit-mono.hex>`_
+* `game-bit-mono.ttf <https://trevorldavis.com/share/fonts/game-bit-mono.ttf>`_
+
 Intended Features
 -----------------
 
