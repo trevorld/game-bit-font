@@ -31,7 +31,7 @@ Target game systems
 The font will aim to support making diagrams for every game system supported by the R function `ppgames::cat_piece() <https://trevorldavis.com/R/ppgames/dev/reference/cat_piece.html>`_ which generates Unicode plaintext game diagrams:
 
 * [ ] `checkers <https://en.wikipedia.org/wiki/English_draughts>`_
-* [ ] `chess <https://en.wikipedia.org/wiki/Chess>`_
+* [X] `chess <https://en.wikipedia.org/wiki/Chess>`_
 * [ ] `dice <https://en.wikipedia.org/wiki/Dice>`_ (standard six-sided)
 * [ ] `dominoes <https://en.wikipedia.org/wiki/Dominoes>`_
 * [ ] `go <https://en.wikipedia.org/wiki/Go_(game)>`_
@@ -81,6 +81,11 @@ Intended for making game diagrams:
   + `View png of glyphs <png/25.png>`__
   + All code points.
 
+* `Miscellaneous Symbols <https://en.wikipedia.org/wiki/Miscellaneous_Symbols>`_
+
+  + `View png of glyphs <png/26.png>`__
+  + The twelve basic chess ranks.
+
 * `CJK Symbols and Punctuation <https://en.wikipedia.org/wiki/CJK_Symbols_and_Punctuation>`_
 
   + `View png of glyphs <png/30.png>`__
@@ -129,7 +134,7 @@ Roadmap
 
 * [ ] `Miscellaneous Symbols <https://en.wikipedia.org/wiki/Miscellaneous_Symbols>`_
 
-  + [ ] Basic chess pieces
+  + [X] Basic chess pieces
   + [ ] Checkers
   + [ ] Dice
   + [ ] Go

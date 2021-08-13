@@ -11,3 +11,8 @@ Differences from GNU Unifont
 
   + "Shade" glyphs were concatenated with themselves
   + The other block element glyphs had their columns doubled.
+
+* "Miscellaneous Symbols" are now "fullwidth"
+
+  + Chess symbols are the "turned" versions from the "Chess Symbols" block rotated 180 degrees.
+    They now "fullwidth" and also match the Chess symbols in the "Chess Symbols" block.
