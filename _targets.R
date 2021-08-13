@@ -1,10 +1,8 @@
 # https://books.ropensci.org/targets
 # tar_make()
 # unifont = tar_read("unifont")
-# tar_option_set(debug = "font")
 
 library("targets")
-
 if (packageVersion("bittermelon") < "0.1.0-40")
     tar_throw_validate("{bittermelon} too old.  Please upgrade.")
 
@@ -12,12 +10,14 @@ source("R/combining_diacritical_marks_for_symbols.R")
 source("R/box_drawing.R")
 source("R/geometric_shapes.R")
 source("R/miscellaneous_symbols.R")
+source("R/enclosed_alphanumerics.R")
 source("R/braille_patterns.R")
 source("R/ttf.R")
 
+# tar_option_set(debug = "enclosed_alphanumerics")
 tar_option_set(packages = c("bittermelon", "glue", "grid", "hexfont"))
 list(
-    tar_target(version, "0.1.0-8"),
+    tar_target(version, "0.1.0-9"),
     tar_target(font_name, "Game Bit Mono"),
     tar_target(copyright, "Copyright (C) 1998-2021 Trevor L Davis, Roman Czyborra, Paul Hardy, et al. License: SIL Open Font License version 1.1 and GPLv2+: GNU GPL version 2 or later <http://gnu.org/licenses/gpl.html> with the GNU Font Embedding Exception."),
     tar_target(unifont, hexfont::unifont()),
@@ -63,6 +63,10 @@ list(
                                             general_punctuation, geometric_shapes,
                                             mathematical_operators,
                                             braille_patterns, misc_dots)),
+    tar_target(enclosed_alphanumerics,
+               create_enclosed_alphanumerics(basic_latin,
+                                             geometric_shapes,
+                                             halfwidth_and_fullwidth_forms)),
     tar_target(braille_patterns, create_braille_patterns()),
     tar_target(misc_dots, {
         # CJK Symbols and Punctuation
@@ -93,6 +97,7 @@ list(
                   geometric_shapes, # U+25A0
                   block_elements, # U+2580
                   miscellaneous_symbols, # U+2600
+                  enclosed_alphanumerics, # U+2700
                   braille_patterns, # U+2800
                   misc_dots, # U+3000, U+30A0, and U+1D16D
                   halfwidth_and_fullwidth_forms, # U+FF01

@@ -32,6 +32,10 @@ Differences from GNU Unifont
   + Chess symbols are the "turned" versions from the "Chess Symbols" block rotated 180 degrees.
     They now "fullwidth" and match the chess symbols in the "Chess Symbols" block.
 
+* Altered "Dingbats", "Enclosed Alphanumerics", and "Enclosed Alphanumeric Supplement"
+
+  + Enclosed Alphanumerics are now fullwidth and use glyphs from "Basic Latin" block.
+
 * New "Braille Patterns" were created
   
   + Are now "fullwidth"

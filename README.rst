@@ -68,6 +68,8 @@ The font will aim to support making diagrams for every game system supported by 
 
   + U+25CF is "black circle" and U+25CB" is "white circle"
   + U+2686 through U+2689 are "Go markers"
+  + Several circled numbers and letters in "Dingbats", "Enclosed Alphanumerics",
+    and "Enclosed Alphanumeric Supplement" blocks that can be used for annotation.
 
 * [ ] `Icehouse pieces <https://en.wikipedia.org/wiki/Icehouse_pieces>`_
 * [ ] `piecepack <https://www.ludism.org/ppwiki>`_
@@ -127,6 +129,15 @@ Intended for making game diagrams:
 
     - U+22EF, U+22F0, and U+22F1 are various ellipses used for pips
 
+* `Enclosed Alphanumerics <https://en.wikipedia.org/wiki/Enclosed_Alphanumerics>`__
+
+  + `View png of glyphs <png/24.png>`__
+  + 64 code points:
+
+    - 12 circled numbers
+    - 26 circled uppercase letters 
+    - 26 circled lowercase letters
+
 * `Box Drawing <https://en.wikipedia.org/wiki/Box_Drawing_(Unicode_block)>`_, `Block Elements <https://en.wikipedia.org/wiki/Block_Elements>`_, and `Geometric Shapes <https://en.wikipedia.org/wiki/Geometric_Shapes>`__
 
   + `View png of glyphs <png/25.png>`__
@@ -144,6 +155,13 @@ Intended for making game diagrams:
     - The six standard die faces.
     - The four "go markers".
     - The twelve basic chess ranks.
+
+* `Dingbats <https://en.wikipedia.org/wiki/Dingbat#Unicode>`_
+
+  + `View png of glyphs <png/27.png>`__
+  + 30 code points:
+
+    - The "Dingbat circled digits"
 
 * `Braille Patterns <https://en.wikipedia.org/wiki/Braille_Patterns>`_
 
@@ -177,6 +195,16 @@ Intended for making game diagrams:
   + `View png of glyphs <png/1F0.png>`__
   + All code points but only horizontal dominoes are fullwidth
 
+* `Enclosed Alphanumeric Supplement <https://en.wikipedia.org/wiki/Enclosed_Alphanumeric_Supplement>`__
+
+  + `View png of glyphs <png/1F1.png>`__
+  + 80 code points:
+
+    - 26 squared uppercase letters
+    - 26 negative circled uppercase letters
+    - 26 negative squared uppercase letters
+    - 2 circled zeroes
+
 * `Chess Symbols <https://en.wikipedia.org/wiki/Chess_Symbols>`_
 
   + `View png of glyphs <png/1FA.png>`__
@@ -204,9 +232,9 @@ Roadmap
   + [ ] Piecepack directional marks
   + [ ] Pips for Dominoes and Icehouse pieces
 
-* [ ] `Combining Diacritical Marks for Symbols <https://en.wikipedia.org/wiki/Combining_Diacritical_Marks_for_Symbols>`_
+* [X] `Combining Diacritical Marks for Symbols <https://en.wikipedia.org/wiki/Combining_Diacritical_Marks_for_Symbols>`_
 
-  + [ ] Combining circle, square, diamond for piecepack pieces
+  + [X] Combining circle, square, diamond for piecepack pieces
   + [X] Perhaps some of the combining dots for pips
 
 * [ ] `Miscellaneous Symbols <https://en.wikipedia.org/wiki/Miscellaneous_Symbols>`_
@@ -214,7 +242,7 @@ Roadmap
   + [X] Basic chess pieces
   + [ ] Checkers
   + [X] Dice
-  + [ ] Go
+  + [X] Go
   + [ ] Piecepack/French Suits
   
 * [X] `Chess Symbols <https://en.wikipedia.org/wiki/Chess_Symbols>`_
@@ -231,12 +259,12 @@ Roadmap
     - `Geometric Shapes Extended <https://en.wikipedia.org/wiki/Geometric_Shapes_Extended>`_
     - `Miscellaneous Symbols and Arrows <https://en.wikipedia.org/wiki/Miscellaneous_Symbols_and_Arrows>`_
 
-* Various Enclosed Alphanumerics for Go annotation?
+* [X] Various Enclosed Alphanumerics for Go annotation?
 
-  + [ ] `Dingbats <https://en.wikipedia.org/wiki/Dingbat#Unicode>`_
-  + [ ] `Enclosed Alphanumerics <https://en.wikipedia.org/wiki/Enclosed_Alphanumerics>`_
+  + [X] `Dingbats <https://en.wikipedia.org/wiki/Dingbat#Unicode>`_
+  + [X] `Enclosed Alphanumerics <https://en.wikipedia.org/wiki/Enclosed_Alphanumerics>`_
   + [ ] `Enclosed CJK Letters and Months <https://en.wikipedia.org/wiki/Enclosed_CJK_Letters_and_Months>`_
-  + [ ] `Enclosed Alphanumeric Supplement <https://en.wikipedia.org/wiki/Enclosed_Alphanumeric_Supplement>`_
+  + [X] `Enclosed Alphanumeric Supplement <https://en.wikipedia.org/wiki/Enclosed_Alphanumeric_Supplement>`_
 
 * Miscellaneous others
 
