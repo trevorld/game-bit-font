@@ -17,12 +17,13 @@ source("R/ttf.R")
 # tar_option_set(debug = "enclosed_alphanumerics")
 tar_option_set(packages = c("bittermelon", "glue", "grid", "hexfont"))
 list(
-    tar_target(version, "0.1.0-9"),
+    tar_target(version, "0.1.0-10"),
     tar_target(font_name, "Game Bit Mono"),
     tar_target(copyright, "Copyright (C) 1998-2021 Trevor L Davis, Roman Czyborra, Paul Hardy, et al. License: SIL Open Font License version 1.1 and GPLv2+: GNU GPL version 2 or later <http://gnu.org/licenses/gpl.html> with the GNU Font Embedding Exception."),
     tar_target(unifont, hexfont::unifont()),
     tar_target(basic_latin, unifont[block2ucp("Basic Latin")]),
     tar_target(latin1_supplement, unifont[block2ucp("Latin-1 Supplement")]),
+    tar_target(latin_extended_a, unifont[block2ucp("Latin Extended-A")]),
     tar_target(general_punctuation, {
         blm <- bm_list()
         quincunx <- bm_bitmap(matrix(0L, nrow = 16L, ncol = 16L))
@@ -32,6 +33,7 @@ list(
         blm[["U+2059"]] <- quincunx
         blm
     }),
+    tar_target(superscripts_and_subscripts, unifont[block2ucp("Superscripts and Subscripts")]),
     tar_target(combining_diacritical_marks_for_symbols,
                create_combining_diacritical_marks_for_symbols(geometric_shapes)),
     tar_target(mathematical_operators, {
@@ -90,7 +92,9 @@ list(
     tar_target(font, {
         font <- c(basic_latin, # U+0020
                   latin1_supplement, # U+00A0
-                  general_punctuation, #U+2000
+                  latin_extended_a, # U+0100
+                  general_punctuation, # U+2000
+                  superscripts_and_subscripts, # U+2070
                   combining_diacritical_marks_for_symbols, # U+20D0
                   mathematical_operators, # U+2200
                   box_drawing, # U+2500

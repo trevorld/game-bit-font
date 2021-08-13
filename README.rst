@@ -5,7 +5,7 @@ Game Bit Mono
    :alt: Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.
    :target: https://www.repostatus.org/#wip
 
-**Warning:** This project is a **Work In Progress**.  The implementation is not complete.
+**Warning:** This project is a **Work In Progress**.
 
 The goal of this project is to create a `monospaced <https://en.wikipedia.org/wiki/Monospaced_font>`_ `bitmap <https://en.wikipedia.org/wiki/Computer_font#BITMAP>`_ font specialized for making board game diagrams.
 
@@ -100,7 +100,17 @@ Intended for writing text:
 * `Basic Latin <https://en.wikipedia.org/wiki/Basic_Latin_(Unicode_block)>`_ and `Latin-1 Supplement <https://en.wikipedia.org/wiki/Latin-1_Supplement_(Unicode_block)>`_
 
   + `View png of glyphs <png/00.png>`__
-  + All non-control code points
+  + All non-control code points.
+
+* `Latin Extended-A <https://en.wikipedia.org/wiki/Latin_Extended-A>`__
+
+  + `View png of glyphs <png/01.png>`__
+  + All code points.
+
+* `Superscripts and Subscripts <https://en.wikipedia.org/wiki/Superscripts_and_Subscripts_(Unicode_block)>`_
+
+  + `View png of glyphs <png/20.png>`__
+  + All code points.
 
 * `Domino Tiles <https://en.wikipedia.org/wiki/Domino_Tiles>`_
 
@@ -219,9 +229,9 @@ Roadmap
   + [X] `Latin-1 Supplement <https://en.wikipedia.org/wiki/Latin-1_Supplement_(Unicode_block)>`_
   + [X] `Halfwidth and Fullwidth Forms <https://en.wikipedia.org/wiki/Halfwidth_and_Fullwidth_Forms_(Unicode_block)>`_?
 
-    - Just the Latin and Punctuation
+    - Just the Latin and Punctuation.
 
-  + [ ] Superscripts and Subscripts?
+  + [X] `Superscripts and Subscripts <https://en.wikipedia.org/wiki/Superscripts_and_Subscripts_(Unicode_block)>`__
   + Include Other common scripts?
 
 * [X] `Box Drawing <https://en.wikipedia.org/wiki/Box_Drawing_(Unicode_block)>`_
