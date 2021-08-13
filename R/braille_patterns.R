@@ -9,6 +9,7 @@ create_braille_patterns <- function() {
     dot5[8:9, 12:13] <- 1L
     dot6[4:5, 12:13] <- 1L
 
+    bml[["U+2800"]] <- empty
     bml[["U+2801"]] <- dot1
     bml[["U+2802"]] <- dot2
     bml[["U+2803"]] <- dot12 <- bm_overlay(dot1, dot2)
