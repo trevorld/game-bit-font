@@ -1,13 +1,13 @@
 Game Bit Mono
 =============
 
-.. image:: https://www.repostatus.org/badges/latest/concept.svg
-   :alt: Project Status: Concept – Minimal or no implementation has been done yet, or the repository is only intended to be a limited example, demo, or proof-of-concept.
-   :target: https://www.repostatus.org/#concept
+.. image:: https://www.repostatus.org/badges/latest/wip.svg
+   :alt: Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.
+   :target: https://www.repostatus.org/#wip
 
-**Warning:** This project is at the **concept** level.  Little implementation has been done yet.
+**Warning:** This project is a **Work In Progress**.  The implementation is not complete.
 
-The goal of this project will be to create a `monospaced <https://en.wikipedia.org/wiki/Monospaced_font>`_ `bitmap <https://en.wikipedia.org/wiki/Computer_font#BITMAP>`_ font specialized for making board game diagrams.
+The goal of this project is to create a `monospaced <https://en.wikipedia.org/wiki/Monospaced_font>`_ `bitmap <https://en.wikipedia.org/wiki/Computer_font#BITMAP>`_ font specialized for making board game diagrams.
 
 .. contents::
 
@@ -32,8 +32,27 @@ The font will aim to support making diagrams for every game system supported by 
 
 * [ ] `checkers <https://en.wikipedia.org/wiki/English_draughts>`_
 * [X] `chess <https://en.wikipedia.org/wiki/Chess>`_
-* [ ] `dice <https://en.wikipedia.org/wiki/Dice>`_ (standard six-sided)
-* [ ] `dominoes <https://en.wikipedia.org/wiki/Dominoes>`_
+* [X] `dice <https://en.wikipedia.org/wiki/Dice>`_
+
+  + U+2680 through U+2685 are "standard" die faces
+  + Can use U+20DE "Combining Enclosing Square" to make non-standard die faces
+
+* [X] `dominoes <https://en.wikipedia.org/wiki/Dominoes>`_
+
+  + "Domino Tiles" block is included but not recommended for diagrams.
+    Instead make 3x5 or 5x3 glyph dominoes.  
+    Adjacent dominoes will share "Box Drawing" outline glyphs.
+  + 0 Pips: U+3000
+  + 1 Pip:  U+30FB 
+  + 2 Pips: U+280C / U+2821 
+  + 3 Pips: U+22F0 / U+22F1
+  + 4 Pips: U+282D
+  + 5 Pips: U+2059
+  + 6 Pips: U+283F / U+3000 U+20DE U+20E8
+  + 7 Pips: U+2059 U+302E U+1D16D / U+3000 U+20DE U+20E8
+  + 8 Pips: U+2025 U+20DE U+20E8
+  + 9 Pips: U+22EF U+20DE U+20E8
+
 * [ ] `go <https://en.wikipedia.org/wiki/Go_(game)>`_
 * [ ] `Icehouse pieces <https://en.wikipedia.org/wiki/Icehouse_pieces>`_
 * [ ] `piecepack <https://www.ludism.org/ppwiki>`_
@@ -56,27 +75,40 @@ Font Coverage
 
 Intended for writing text:
 
-* `Basic Latin <https://en.wikipedia.org/wiki/Basic_Latin_(Unicode_block)>`_
+* `Basic Latin <https://en.wikipedia.org/wiki/Basic_Latin_(Unicode_block)>`_ and `Latin-1 Supplement <https://en.wikipedia.org/wiki/Latin-1_Supplement_(Unicode_block)>`_
 
   + `View png of glyphs <png/00.png>`__
   + All non-control code points
 
-* `Latin-1 Supplement <https://en.wikipedia.org/wiki/Latin-1_Supplement_(Unicode_block)>`_
+* `Domino Tiles <https://en.wikipedia.org/wiki/Domino_Tiles>`_
 
-  + `View png of glyphs <png/00.png>`__
-  + All non-control code points
+  + `View png of glyphs <png/1F0.png>`__
+  + All code points but only vertical dominoes are halfwidth
 
 16x16 "Fullwidth"
 ~~~~~~~~~~~~~~~~~
 
 Intended for making game diagrams:
 
-* `Box Drawing <https://en.wikipedia.org/wiki/Box_Drawing_(Unicode_block)>`_
+* `General Punctuation <https://en.wikipedia.org/wiki/General_Punctuation>`_ and `Combining Diacritical Marks for Symbols <https://en.wikipedia.org/wiki/Combining_Diacritical_Marks_for_Symbols>`_
 
-  + `View png of glyphs <png/25.png>`__
-  + All code points.
+  + `View png of glyphs <png/20.png>`__
+  + 5 code points:
 
-* `Block Elements <https://en.wikipedia.org/wiki/Block_Elements>`_
+    - U+2025 "Two Dot Leader" for certain pips
+    - U+2059 "Five Dot Punctuation" for five pips
+    - U+20DB "Combining Three Dots Above" for certain pips
+    - U+20DE "Combining Enclosing Square" can be used to make new dice
+    - U+20E8 "Combining Triple Under Dot" for certain pips
+
+* `Mathematical Operators <https://en.wikipedia.org/wiki/Mathematical_Operators_(Unicode_block)>`_
+
+  + `View png of glyphs <png/22.png>`__
+  + 3 code points:
+
+    - U+22EF, U+22F0, and U+22F1 are various ellipses used for pips
+
+* `Box Drawing <https://en.wikipedia.org/wiki/Box_Drawing_(Unicode_block)>`_ and `Block Elements <https://en.wikipedia.org/wiki/Block_Elements>`_
 
   + `View png of glyphs <png/25.png>`__
   + All code points.
@@ -84,21 +116,42 @@ Intended for making game diagrams:
 * `Miscellaneous Symbols <https://en.wikipedia.org/wiki/Miscellaneous_Symbols>`_
 
   + `View png of glyphs <png/26.png>`__
-  + The twelve basic chess ranks.
+  + 18 code points:
 
-* `CJK Symbols and Punctuation <https://en.wikipedia.org/wiki/CJK_Symbols_and_Punctuation>`_
+    - The six standard die faces.
+    - The twelve basic chess ranks.
+
+* `Braille Patterns <https://en.wikipedia.org/wiki/Braille_Patterns>`_
+
+  + `View png of glyphs <png/28.png>`_
+  + Just the (complete) 6-dot cell range.
+  + Dots spaced to also represent 2/4/6 pips on a die or domino.
+
+* `CJK Symbols and Punctuation <https://en.wikipedia.org/wiki/CJK_Symbols_and_Punctuation>`_ and `Katakana <https://en.wikipedia.org/wiki/Katakana>`__
 
   + `View png of glyphs <png/30.png>`__
   + Three code points:
 
     - U+3000 "Ideographic Space" is the fullwidth space.
     - U+302E "Hangul Single Dot Tone Mark" is only combining left dot.
-    - U+302F "Hangul Double Dot Tone Mark" is only combining left double dot.
+    - U+30FB "Katakana Middle Dot" is the fullwidth middle dot.
 
 * `Halfwidth and Fullwidth Forms <https://en.wikipedia.org/wiki/Halfwidth_and_Fullwidth_Forms_(Unicode_block)>`_
 
   + `View png of glyphs <png/FF.png>`__
   + Just the fullwidth versions of the ASCII characters.
+
+* `Musical Symbols <https://en.wikipedia.org/wiki/Musical_Symbols_(Unicode_block)>`_
+
+  + `View png of glyphs <png/1D1.png>`__
+  + One code point:
+
+    - U+1D16D "Musical Symbol Combining Augmentation Dot" is only combining right dot.
+
+* `Domino Tiles <https://en.wikipedia.org/wiki/Domino_Tiles>`_
+
+  + `View png of glyphs <png/1F0.png>`__
+  + All code points but only horizontal dominoes are fullwidth
 
 * `Chess Symbols <https://en.wikipedia.org/wiki/Chess_Symbols>`_
 
@@ -130,13 +183,13 @@ Roadmap
 * [ ] `Combining Diacritical Marks for Symbols <https://en.wikipedia.org/wiki/Combining_Diacritical_Marks_for_Symbols>`_
 
   + [ ] Combining circle, square, diamond for piecepack pieces
-  + [ ] Perhaps some of the combining dots for pips
+  + [X] Perhaps some of the combining dots for pips
 
 * [ ] `Miscellaneous Symbols <https://en.wikipedia.org/wiki/Miscellaneous_Symbols>`_
 
   + [X] Basic chess pieces
   + [ ] Checkers
-  + [ ] Dice
+  + [X] Dice
   + [ ] Go
   + [ ] Piecepack/French Suits
   

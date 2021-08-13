@@ -1,4 +1,7 @@
-create_miscellaneous_symbols <- function(unifont) {
+create_miscellaneous_symbols <- function(unifont,
+                                         general_punctuation, combining_diacritical_marks_for_symbols,
+                                         mathematical_operators,
+                                         braille_patterns, katakana) {
 
     blm <- bm_list()
 
@@ -16,8 +19,17 @@ create_miscellaneous_symbols <- function(unifont) {
     blm[["U+265E"]] <- bm_rotate(unifont[["U+1FA28"]], 180) # BN
     blm[["U+265F"]] <- bm_rotate(unifont[["U+1FA29"]], 180) # BP
 
-    for (ucp in range2ucp("U+2654..U+265F")[-c(5, 11)])
+    for (ucp in range2ucp("U+2654..U+265F")[-c(5, 11)]) # Knights don't need to be shifted
         blm[[ucp]] <- bm_shift(blm[[ucp]], right = 1L)
+
+    # Dice
+    square <- combining_diacritical_marks_for_symbols[["U+20DE"]]
+    blm[["U+2680"]] <- bm_overlay(square, katakana[["U+30FB"]])
+    blm[["U+2681"]] <- bm_overlay(square, braille_patterns[["U+280C"]])
+    blm[["U+2682"]] <- bm_overlay(square, mathematical_operators[["U+22F0"]])
+    blm[["U+2683"]] <- bm_overlay(square, braille_patterns[["U+282D"]])
+    blm[["U+2684"]] <- bm_overlay(square, general_punctuation[["U+2059"]])
+    blm[["U+2685"]] <- bm_overlay(square, braille_patterns[["U+283F"]])
 
     blm
 }
