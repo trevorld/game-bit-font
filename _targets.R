@@ -17,7 +17,7 @@ source("R/ttf.R")
 # tar_option_set(debug = "enclosed_alphanumerics")
 tar_option_set(packages = c("bittermelon", "glue", "grid", "hexfont"))
 list(
-    tar_target(version, "0.1.0-10"),
+    tar_target(version, "0.1.0-11"),
     tar_target(font_name, "Game Bit Mono"),
     tar_target(copyright, "Copyright (C) 1998-2021 Trevor L Davis, Roman Czyborra, Paul Hardy, et al. License: SIL Open Font License version 1.1 and GPLv2+: GNU GPL version 2 or later <http://gnu.org/licenses/gpl.html> with the GNU Font Embedding Exception."),
     tar_target(unifont, hexfont::unifont()),

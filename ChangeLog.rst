@@ -26,11 +26,13 @@ Differences from GNU Unifont
   + The other block element glyphs had their columns doubled.
 
 * New "Geometric Shapes" glyphs were created and are now "fullwidth"
-* New "Miscellaneous Symbols" are now "fullwidth"
+* "Miscellaneous Symbols" are now "fullwidth"
 
-  + Dice symbols were created from scratch.  Now fullwidth and their borders now reach the edge.
   + Chess symbols are the "turned" versions from the "Chess Symbols" block rotated 180 degrees.
     They now "fullwidth" and match the chess symbols in the "Chess Symbols" block.
+  + New dice symbols' borders now reach the edge.
+  + New "Go markers"' borders now reach the edge.
+  + New "Checkers" borders' now reach the edge.
 
 * Altered "Dingbats", "Enclosed Alphanumerics", and "Enclosed Alphanumeric Supplement"
 

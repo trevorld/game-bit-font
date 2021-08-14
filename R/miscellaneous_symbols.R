@@ -37,5 +37,49 @@ create_miscellaneous_symbols <- function(unifont,
     blm[["U+2688"]] <- bm_mask(geometric_shapes[["U+25CF"]], misc_dots[["U+1D16D"]])
     blm[["U+2689"]] <- bm_mask(geometric_shapes[["U+25CF"]], braille_patterns[["U+2812"]])
 
+    # Checkers
+    # Fixed is a public domain font
+    fixed_4x6 <- read_yaff(system.file("fonts/fixed/4x6.yaff.gz",
+                                       package = "bittermelon"))
+    K <- bm_extend(fixed_4x6[[str2ucp("K")]], left=6, right=6, bottom = 8, top = 2)
+    K[c(10, 14), 9] <- 0L
+    K[c(10, 14), 10] <- 1L
+
+    angle <- seq(0, 2 * pi, length.out = 360)
+    angle <- head(angle, -1L)
+    x <- 0.5 + 0.5 * cos(angle)
+    y <- 0.5 + 0.5 * sin(angle)
+    oval_man <- as_bm_bitmap(polygonGrob(x = x, y = 0.75 * y), width = 16, height = 16)
+    oval_man_white <- bm_outline(oval_man)
+    white_checkers_man <- bm_overlay(bm_mask(oval_man_white, bm_shift(oval_man, top = 4L)),
+                                     bm_shift(oval_man_white, top = 4L))
+    white_checkers_man[10:11, 8:9] <- 1L
+
+    oval_man <- as_bm_bitmap(polygonGrob(x = x, y = 0.60 * y), width = 16, height = 16)
+    oval_man_white <- bm_outline(oval_man)
+    white_checkers_king <- bm_overlay(bm_mask(oval_man_white, bm_shift(oval_man, top = 3L)),
+                                     bm_shift(oval_man_white, top = 3L))
+    white_checkers_king <- bm_overlay(bm_mask(white_checkers_king, bm_shift(oval_man, top = 6L)),
+                                     bm_shift(oval_man_white, top = 6L)) |>
+                           bm_overlay(K)
+
+    oval_full <- bm_overlay(oval_man, bm_shift(oval_man, top = 3L)) |>
+                    bm_overlay(bm_shift(oval_man, top = 6L))
+    black_checkers_man_mask <- bm_mask(white_checkers_man, bm_outline(oval_full))
+    black_checkers_man <- bm_mask(oval_full,
+                                  black_checkers_man_mask)
+    black_checkers_man[8, c(1, 16)] <- 0L
+
+    black_checkers_king_mask <- bm_mask(white_checkers_king, bm_outline(oval_full))
+    black_checkers_king <- bm_mask(oval_full,
+                                   black_checkers_king_mask)
+    black_checkers_king[c(7, 10), c(1, 16)] <- 0L
+    black_checkers_king[c(5, 12), c(1, 16)] <- 1L
+
+    blm[["U+26C0"]] <- white_checkers_man # White Checkers Man
+    blm[["U+26C1"]] <- white_checkers_king  # White Checkers King
+    blm[["U+26C2"]] <- black_checkers_man # Black Checkers Man
+    blm[["U+26C3"]] <- black_checkers_king # Black Checkers King
+
     blm
 }

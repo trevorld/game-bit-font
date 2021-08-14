@@ -29,7 +29,7 @@ Intended Features
   * Some blocks such as Basic Latin will be "halfwidth" to better support text rendering.
 
 * Needs to have the important piecepack rank/suit Unicode symbols including support for all rotated versions of the glyphs. These symbols must still look nice when combining with Combining Diacritical Marks used as directional marks plus an enclosing circle, square, diamond, and/or triangle. 
-* Would also be nice to include the relevant "rotated" Unicode 12.0 chess piece glyphs (useful as piecapack Crowns and pawns).
+* Would also be nice to include the relevant "rotated" Unicode 12.0 chess piece glyphs (useful as piecepack Crowns and pawns).
 * Needs support for all the thin/thick box-drawing characters. These should combine well with the piecepack coins, dice, and pawns (i.e. enclosing circles, squares, etc.) so it looks like those pieces are truly on top of the tiles (so no lines going through the "edge" of the coins, dice, pawns or awkward gaps between lines and piece "edges").
 
 Target game systems
@@ -37,7 +37,12 @@ Target game systems
 
 The font will aim to support making diagrams for every game system supported by the R function `ppgames::cat_piece() <https://trevorldavis.com/R/ppgames/dev/reference/cat_piece.html>`_ which generates Unicode plaintext game diagrams:
 
-* [ ] `checkers <https://en.wikipedia.org/wiki/English_draughts>`_
+* [X] `checkers <https://en.wikipedia.org/wiki/English_draughts>`_
+
+  + U+26C0 through U+26C3 are "standard" checkers/draughts pieces.
+  + As an alternative U+25CF is "black circle" and U+25CB" is "white circle"
+    while U+24C0 and U+1F15A are circled uppercase K's.
+
 * [X] `chess <https://en.wikipedia.org/wiki/Chess>`_
 
   + U+2654 through U+265F are "standard" chess pieces
@@ -160,11 +165,12 @@ Intended for making game diagrams:
 * `Miscellaneous Symbols <https://en.wikipedia.org/wiki/Miscellaneous_Symbols>`_
 
   + `View png of glyphs <png/26.png>`__
-  + 22 code points:
+  + 26 code points:
 
     - The six standard die faces.
     - The four "go markers".
     - The twelve basic chess ranks.
+    - The four checkers/draughts pieces.
 
 * `Dingbats <https://en.wikipedia.org/wiki/Dingbat#Unicode>`_
 
@@ -250,7 +256,7 @@ Roadmap
 * [ ] `Miscellaneous Symbols <https://en.wikipedia.org/wiki/Miscellaneous_Symbols>`_
 
   + [X] Basic chess pieces
-  + [ ] Checkers
+  + [X] Checkers
   + [X] Dice
   + [X] Go
   + [ ] Piecepack/French Suits
