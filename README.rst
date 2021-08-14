@@ -120,7 +120,7 @@ Intended for writing text:
 * `Domino Tiles <https://en.wikipedia.org/wiki/Domino_Tiles>`_
 
   + `View png of glyphs <png/1F0.png>`__
-  + All code points but only vertical dominoes are halfwidth
+  + All code points but horizontal dominoes are actually fullwidth
 
 16x16 "Fullwidth"
 ~~~~~~~~~~~~~~~~~
@@ -206,10 +206,10 @@ Intended for making game diagrams:
 
     - U+1D16D "Musical Symbol Combining Augmentation Dot" is only combining right dot.
 
-* `Domino Tiles <https://en.wikipedia.org/wiki/Domino_Tiles>`_
+* `Mahjong Tiles <https://en.wikipedia.org/wiki/Mahjong_Tiles_(Unicode_block)>`__, `Domino Tiles <https://en.wikipedia.org/wiki/Domino_Tiles>`_, and `Playing Cards <https://en.wikipedia.org/wiki/Playing_cards_in_Unicode>`__
 
   + `View png of glyphs <png/1F0.png>`__
-  + All code points but only horizontal dominoes are fullwidth
+  + All code points but vertical dominoes are actually halfwidth
 
 * `Enclosed Alphanumeric Supplement <https://en.wikipedia.org/wiki/Enclosed_Alphanumeric_Supplement>`__
 

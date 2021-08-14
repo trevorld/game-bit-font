@@ -87,7 +87,9 @@ list(
         halfwidth_and_fullwidth_forms,
         unifont[range2ucp("U+FF01..U+FF5E")]
     ),
+    tar_target(mahjong_tiles, unifont[block2ucp("Mahjong Tiles")]),
     tar_target(domino_tiles, unifont[block2ucp("Domino Tiles")]),
+    tar_target(playing_cards, unifont[block2ucp("Playing Cards")]),
     tar_target(chess_symbols, unifont[block2ucp("Chess Symbols")]),
     tar_target(font, {
         font <- c(basic_latin, # U+0020
@@ -105,7 +107,9 @@ list(
                   braille_patterns, # U+2800
                   misc_dots, # U+3000, U+30A0, and U+1D16D
                   halfwidth_and_fullwidth_forms, # U+FF01
+                  mahjong_tiles, # U+1F000
                   domino_tiles, # U+1F030
+                  playing_cards, # U+1F0A0
                   chess_symbols # U+1FA00
         )
         font <- font[ucp_sort(names(font))]
