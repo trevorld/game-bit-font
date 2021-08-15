@@ -48,6 +48,7 @@ Differences from GNU Unifont
   "Hangul Single Dot Tone Mark" designed to serve as pip and/or directional mark.
 
 * New "Katakana" block "Katakana Middle Dot" was created.  Now smaller and centered.
+  Serves as single die/domino pip.
 
 * New "Musical Symbols" block "Musical Symbol Combining Augmentation Dot" was created.  
   Designed to serve as pip and/or directional mark.

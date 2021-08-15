@@ -1,6 +1,5 @@
 create_miscellaneous_symbols <- function(unifont,
                                          general_punctuation, geometric_shapes,
-                                         mathematical_operators,
                                          braille_patterns, misc_dots) {
 
     blm <- bm_list()
@@ -26,7 +25,7 @@ create_miscellaneous_symbols <- function(unifont,
     square <- geometric_shapes[["U+25A1"]]
     blm[["U+2680"]] <- bm_overlay(square, misc_dots[["U+30FB"]])
     blm[["U+2681"]] <- bm_overlay(square, braille_patterns[["U+280C"]])
-    blm[["U+2682"]] <- bm_overlay(square, mathematical_operators[["U+22F0"]])
+    blm[["U+2682"]] <- bm_overlay(square, misc_dots[["U+22F0"]])
     blm[["U+2683"]] <- bm_overlay(square, braille_patterns[["U+282D"]])
     blm[["U+2684"]] <- bm_overlay(square, general_punctuation[["U+2059"]])
     blm[["U+2685"]] <- bm_overlay(square, braille_patterns[["U+283F"]])

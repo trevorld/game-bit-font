@@ -76,7 +76,16 @@ The font will aim to support making diagrams for every game system supported by 
   + Several circled numbers and letters in "Dingbats", "Enclosed Alphanumerics",
     and "Enclosed Alphanumeric Supplement" blocks that can be used for annotation.
 
-* [ ] `Icehouse pieces <https://en.wikipedia.org/wiki/Icehouse_pieces>`_
+* [X] `Icehouse pieces <https://en.wikipedia.org/wiki/Icehouse_pieces>`_
+
+  + One may crudely refer to Icehouse pieces by using smaller squares and triangles from "Geometric Shapes" block
+    plus using a combining 1/2/3 dots beneath.
+
+    + Square indicates standing pyramid.
+    + Triangle laid down pyramid, where it points is where the pyramid points.
+    + Number of dots beneath indicate number of pips on the pyramid.
+    + This is enough to visualize certain abstracts like `Martian Chess <https://www.looneylabs.com/rules/martian-chess>`__ and `Pikemen <https://www.icehousegames.org/wiki/index.php?title=Pikemen>`__ but not enough to visualize games where you stack pyramids on one another.
+
 * [ ] `piecepack <https://www.ludism.org/ppwiki>`_
 
   + [ ] playing cards expansion
@@ -127,15 +136,25 @@ Intended for writing text:
 
 Intended for making game diagrams:
 
+* `Combining Diacritical Marks <https://en.wikipedia.org/wiki/Combining_Diacritical_Marks>`_
+
+  + `View png of glyphs <png/03.png>`__
+  + 5 combining dot code points
+
+* `Combining Diacritical Marks Supplement <https://en.wikipedia.org/wiki/Combining_Diacritical_Marks_Supplement>`__
+
+  + `View png of glyphs <png/1D.png>`__
+  + 2 combining dot code points (1 proposed in the `Unicode Pipeline <https://unicode.org/alloc/Pipeline.html>`__)
+
 * `General Punctuation <https://en.wikipedia.org/wiki/General_Punctuation>`_ and `Combining Diacritical Marks for Symbols <https://en.wikipedia.org/wiki/Combining_Diacritical_Marks_for_Symbols>`_
 
   + `View png of glyphs <png/20.png>`__
-  + 4 code points:
+  + 7 code points:
 
-    - U+2059 "Five Dot Punctuation" for certain pips
-    - U+20DB "Combining Three Dots Above" for certain pips
-    - U+20DE "Combining Enclosing Square" can be used to make new dice
-    - U+20E8 "Combining Triple Under Dot" for certain pips
+    - U+2059 "Five Dot Punctuation", U+20DB "Combining Three Dots Above", U+20E8 "Combining Triple Under Dot" for certain pips
+    - U+20DE "Combining Enclosing Square" can be used to make new dice (or tiles)
+    - U+20DD "Combining Enclosing Circle" can be used to make new circular pieces
+    - U+20DF "Combining Enclosing Diamonds" and U+20E4 "Combinin Enclosing Triangle" can be used to make new pieces
 
 * `Mathematical Operators <https://en.wikipedia.org/wiki/Mathematical_Operators_(Unicode_block)>`_
 
@@ -157,7 +176,7 @@ Intended for making game diagrams:
 
   + `View png of glyphs <png/25.png>`__
   + All "Box Drawing" and "Block Elements" code points.
-  + 18 code points in "Geometric Shapes"
+  + All code points in "Geometric Shapes"
 
     - Shapes can be used for various abstracts.
     - In particular use "Black Circle" and "White Circle" for go stones in diagrams.
@@ -188,10 +207,11 @@ Intended for making game diagrams:
 * `CJK Symbols and Punctuation <https://en.wikipedia.org/wiki/CJK_Symbols_and_Punctuation>`_ and `Katakana <https://en.wikipedia.org/wiki/Katakana>`__
 
   + `View png of glyphs <png/30.png>`__
-  + Three code points:
+  + Four code points:
 
     - U+3000 "Ideographic Space" is the fullwidth space.
     - U+302E "Hangul Single Dot Tone Mark" is only combining left dot.
+    - U+302F "Hangul Double Dot Tone Mark" is only combining left double dots.
     - U+30FB "Katakana Middle Dot" is the fullwidth middle dot.
 
 * `Halfwidth and Fullwidth Forms <https://en.wikipedia.org/wiki/Halfwidth_and_Fullwidth_Forms_(Unicode_block)>`_
@@ -243,10 +263,10 @@ Roadmap
 * [X] `Box Drawing <https://en.wikipedia.org/wiki/Box_Drawing_(Unicode_block)>`_
 * [X] `Block Elements <https://en.wikipedia.org/wiki/Block_Elements>`_
 
-* [ ] `Combining Diacritical Marks <https://en.wikipedia.org/wiki/Combining_Diacritical_Marks>`_
+* [X] `Combining Diacritical Marks <https://en.wikipedia.org/wiki/Combining_Diacritical_Marks>`_
   
-  + [ ] Piecepack directional marks
-  + [ ] Pips for Dominoes and Icehouse pieces
+  + [X] Piecepack directional marks
+  + [X] Pips for Dominoes and Icehouse pieces
 
 * [X] `Combining Diacritical Marks for Symbols <https://en.wikipedia.org/wiki/Combining_Diacritical_Marks_for_Symbols>`_
 
@@ -265,11 +285,11 @@ Roadmap
 
   + Note this block is just "fairy" chess pieces and Xiangqi pieces
 
-* [ ] `Geometric Shapes <https://en.wikipedia.org/wiki/Geometric_Shapes>`_
+* [X] `Geometric Shapes <https://en.wikipedia.org/wiki/Geometric_Shapes>`_
 
-  + [ ] Triangles and squares for Icehouse pieces
+  + [X] Triangles and squares for Icehouse pieces
   + More symbols for generic abstracts?
-  + More shapes in
+  + More shapes from other blocks?
 
     - `Miscellaneous Symbols and Pictographs <https://en.wikipedia.org/wiki/Miscellaneous_Symbols_and_Pictographs>`_
     - `Geometric Shapes Extended <https://en.wikipedia.org/wiki/Geometric_Shapes_Extended>`_
@@ -299,7 +319,6 @@ Roadmap
 
 * `A list of glyphs used by ppgames::cat_piece() <https://github.com/piecepackr/ppgames/blob/master/raw-data/sysdata.R>`_
 * `A list of Unicode piecepack symbols <https://trevorldavis.com/piecepackr/unicode-piecepack-symbols.html>`_
-
 
 To build output from scratch
 ----------------------------

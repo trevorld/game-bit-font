@@ -12,6 +12,7 @@ create_combining_diacritical_marks_for_symbols <- function(geometric_shapes) {
     blm[["U+20DD"]] <- geometric_shapes[["U+25CB"]] # enclosing circle
     blm[["U+20DE"]] <- geometric_shapes[["U+25A1"]] # enclosing square
     blm[["U+20DF"]] <- geometric_shapes[["U+25C7"]] # enclosing diamond
+    blm[["U+20E4"]] <- geometric_shapes[["U+25B3"]] # enclosing triangle
     blm[["U+20E8"]] <- three_dots_below
     blm
 }
