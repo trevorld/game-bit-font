@@ -1,4 +1,4 @@
-Game Bit Mono
+Game Bit Font
 =============
 
 .. image:: https://www.repostatus.org/badges/latest/wip.svg
@@ -7,12 +7,22 @@ Game Bit Mono
 
 **Warning:** This project is a **Work In Progress**.
 
-The goal of this project is to create a `monospaced <https://en.wikipedia.org/wiki/Monospaced_font>`_ `bitmap <https://en.wikipedia.org/wiki/Computer_font#BITMAP>`_ font specialized for making board game diagrams.
+The goal of this project is to create a fixed-width  `bitmap <https://en.wikipedia.org/wiki/Computer_font#BITMAP>`_ font specialized for making board game diagrams.  The `duospaced <https://en.wikipedia.org/wiki/Duospaced_font>`_ version is called **Game Bit Duo** while the square `monospaced <https://en.wikipedia.org/wiki/Monospaced_font>`_ version is called **Game Bit Mono**.
 
 .. contents::
 
 Font Files
 ----------
+
+Game Bit Duo
+~~~~~~~~~~~~
+
+* `game-bit-duo.bdf <https://raw.githubusercontent.com/trevorld/game-bit-duo/main/game-bit-duo.bdf>`_
+* `game-bit-duo.hex <https://raw.githubusercontent.com/trevorld/game-bit-duo/main/game-bit-duo.hex>`_
+* `game-bit-duo.ttf <https://trevorldavis.com/share/fonts/game-bit-duo.ttf>`_
+
+Game Bit Mono
+~~~~~~~~~~~~~
 
 * `game-bit-mono.bdf <https://raw.githubusercontent.com/trevorld/game-bit-mono/main/game-bit-mono.bdf>`_
 * `game-bit-mono.hex <https://raw.githubusercontent.com/trevorld/game-bit-mono/main/game-bit-mono.hex>`_
@@ -23,7 +33,7 @@ Intended Features
 
 `My wishlist for a font that does not seem to exist yet <http://trevorldavis.com/piecepackr/unicode-piecepack-diagrams.html#piecepack-font-wishlist>`_:  
 
-* A monoscale font.
+* A fixed-width duospaced font.
 * Characters intended for use in diagrams will generally be square (aka "fullwidth").
 
   * Some blocks such as Basic Latin will be "halfwidth" to better support text rendering.
@@ -109,7 +119,7 @@ Font Coverage
 8x16 "Halfwidth"
 ~~~~~~~~~~~~~~~~
 
-Intended for writing text:
+In **Game Bit Duo** these are halfwidth and intended for writing text.  In **Game Bit Mono** they are padded with extra horizontal whitespace to force them into a square shape and hence are not great for writing text.:
 
 * `Basic Latin <https://en.wikipedia.org/wiki/Basic_Latin_(Unicode_block)>`_ and `Latin-1 Supplement <https://en.wikipedia.org/wiki/Latin-1_Supplement_(Unicode_block)>`_
 
@@ -209,7 +219,7 @@ Intended for making game diagrams:
   + `View png of glyphs <png/30.png>`__
   + Four code points:
 
-    - U+3000 "Ideographic Space" is the fullwidth space.
+    - U+3000 "Ideographic Space" is the proper fullwidth space.
     - U+302E "Hangul Single Dot Tone Mark" is only combining left dot.
     - U+302F "Hangul Double Dot Tone Mark" is only combining left double dots.
     - U+30FB "Katakana Middle Dot" is the fullwidth middle dot.
@@ -352,6 +362,12 @@ GNU Unifont
 -----------
 
 * This font is a derivative of `GNU Unifont <http://unifoundry.com/unifont/index.html>`_.
-* It uses a subset of glyphs from GNU Unifont.
+* It includes a subset of glyphs from GNU Unifont.
 * See `ChangeLog.rst <ChangeLog.rst>`_ for a list of differences between the glyphs in this font and GNU Unifont.
 * It also adapts the bdf/ttf font build chains from GNU Unifont.
+
+Related Fonts of Interest
+-------------------------
+
+* `Catrinity <http://catrinity-font.de/>`__ and `Nishiki-teki <https://umihotaru.work/>`_ are two sans-serif fonts with a bunch of game pieces in their Private Use Areas.
+* `Kreative Square <http://www.kreativekorp.com/software/fonts/ksquare.shtml>`__ is a fullwidth scalable monospace font designed specifically to support pseudographics, semigraphics, and private use characters.

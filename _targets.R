@@ -16,11 +16,12 @@ source("R/braille_patterns.R")
 source("R/ttf.R")
 
 # tar_option_set(debug = "enclosed_alphanumerics")
-# tar_option_set(debug = "hex_file")
+# tar_option_set(debug = "mono_hex_file")
 tar_option_set(packages = c("bittermelon", "glue", "grid", "hexfont"))
 list(
     tar_target(version, "0.1.0-12"),
-    tar_target(font_name, "Game Bit Mono"),
+    tar_target(mono_font_name, "Game Bit Mono"),
+    tar_target(duo_font_name, "Game Bit Duo"),
     tar_target(copyright, "Copyright (C) 1998-2021 Trevor L Davis, Roman Czyborra, Paul Hardy, et al. License: SIL Open Font License version 1.1 and GPLv2+: GNU GPL version 2 or later <http://gnu.org/licenses/gpl.html> with the GNU Font Embedding Exception."),
     tar_target(unifont, hexfont::unifont()),
     tar_target(basic_latin, unifont[block2ucp("Basic Latin")]),
@@ -65,8 +66,8 @@ list(
     tar_target(domino_tiles, unifont[block2ucp("Domino Tiles")]),
     tar_target(playing_cards, unifont[block2ucp("Playing Cards")]),
     tar_target(chess_symbols, unifont[block2ucp("Chess Symbols")]),
-    tar_target(font, {
-        font <- c(basic_latin, # U+0020
+    tar_target(duo_font, {
+        duo_font <- c(basic_latin, # U+0020
                   latin1_supplement, # U+00A0
                   latin_extended_a, # U+0100
                   general_punctuation, # U+2000
@@ -85,36 +86,58 @@ list(
                   playing_cards, # U+1F0A0
                   chess_symbols # U+1FA00
         )
-        font <- font[ucp_sort(names(font))]
-        font
+        duo_font <- duo_font[ucp_sort(names(duo_font))]
+        duo_font
     }),
-    tar_target(hex_file, {
-            write_hex(font, "game-bit-mono.hex")
+    tar_target(mono_font, {
+        bm_extend(duo_font, width = 16L)
+    }),
+    tar_target(duo_hex_file, {
+            write_hex(duo_font, "game-bit-duo.hex")
+            "game-bit-duo.hex"
+        },
+        format = "file"
+    ),
+    tar_target(mono_hex_file, {
+            write_hex(mono_font, "game-bit-mono.hex")
             "game-bit-mono.hex"
         },
         format = "file"
     ),
-    tar_target(bdf_file, {
-            bdf_file <- gsub(".hex$", ".bdf", hex_file)
+    tar_target(duo_bdf_file, {
+            duo_bdf_file <- gsub(".hex$", ".bdf", duo_hex_file)
             system2("perl",
                     c("bin/hex2bdf",
-                      "-f", shQuote(font_name),
+                      "-f", shQuote(duo_font_name),
                       "-v", version,
                       "-c", shQuote(copyright)),
-                    stdin = hex_file,
-                    stdout = bdf_file)
-            bdf_file
+                    stdin = duo_hex_file,
+                    stdout = duo_bdf_file)
+            duo_bdf_file
+        },
+        format = "file"
+    ),
+    tar_target(mono_bdf_file, {
+            mono_bdf_file <- gsub(".hex$", ".bdf", mono_hex_file)
+            system2("perl",
+                    c("bin/hex2bdf",
+                      "-f", shQuote(mono_font_name),
+                      "-v", version,
+                      "-c", shQuote(copyright)),
+                    stdin = mono_hex_file,
+                    stdout = mono_bdf_file)
+            mono_bdf_file
         },
         format = "file"
     ),
     tar_target(
         combining_file,
         {
-            ucp <- names(font)
+            ucp <- names(duo_font)
             PUA_combining <- c("U+1DFA")
             ucp <- ucp[which(is_combining_character(ucp) | (ucp %in% PUA_combining))]
             ucp <- ucp_sort(ucp)
-            combining <- font[ucp]
+            combining <- duo_font[ucp]
             widths <- bm_widths(combining)
             txt <- paste0(substr(ucp, 3, nchar(ucp)), ":", -widths)
             writeLines(txt, "combining.txt")
@@ -125,12 +148,12 @@ list(
     tar_target(
         png_files,
         {
-            ucp <- names(font) |> unique()
+            ucp <- names(duo_font) |> unique()
             pages <- substr(ucp, 3, nchar(ucp) - 2L) |> unique()
             png_files <- paste0("png/", pages, ".png")
             for (i in seq_along(pages)) {
                 system2("perl",
-                        c("bin/unihex2png", "-i", hex_file,
+                        c("bin/unihex2png", "-i", duo_hex_file,
                           "-p", pages[i],
                           "-o", png_files[i]))
             }
@@ -139,18 +162,28 @@ list(
         format = "file"
     ),
     tar_target(
-        sfd_file,
-        fontforge_sfd(hex_file, combining_file, font_name, version, copyright),
+        duo_sfd_file,
+        fontforge_sfd(duo_hex_file, combining_file, duo_font_name, version, copyright),
+        format = "file"
+    ),
+    tar_target(
+        mono_sfd_file,
+        fontforge_sfd(mono_hex_file, combining_file, mono_font_name, version, copyright),
         format = "file"
     ),
     # tar_target(
     #     ttf_sbit_file,
-    #     fontforge_sbit_ttf(bdf_file, version),
+    #     fontforge_sbit_ttf(mono_bdf_file, version),
     #     format = "file"
     # ),
     tar_target(
-        ttf_file,
-        fontforge_outline_ttf(sfd_file),
+        duo_ttf_file,
+        fontforge_outline_ttf(duo_sfd_file),
+        format = "file"
+    ),
+    tar_target(
+        mono_ttf_file,
+        fontforge_outline_ttf(mono_sfd_file),
         format = "file"
     )
 )
