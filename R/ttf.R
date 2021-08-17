@@ -11,7 +11,7 @@ fontforge_sfd <- function(hex_file, combining_file, font_name, version, copyrigh
 
     psname <- gsub(" ", "", font_name) # Postscript name of font inside TTF file
     ttf_lang <- "0x409" # American English
-    website <- "https://github.com/trevorld/game-bit-mono/"
+    website <- "https://github.com/trevorld/game-bit-font/"
 
     cmd <- glue::glue(
       'Open("{sfd_file}"); ',

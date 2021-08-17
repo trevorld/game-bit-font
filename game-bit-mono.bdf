@@ -4,7 +4,7 @@ SIZE 16 75 75
 FONTBOUNDINGBOX 16 16 0 -2
 STARTPROPERTIES 24
 COPYRIGHT "Copyright (C) 1998-2021 Trevor L Davis, Roman Czyborra, Paul Hardy, et al. License: SIL Open Font License version 1.1 and GPLv2+: GNU GPL version 2 or later <http://gnu.org/licenses/gpl.html> with the GNU Font Embedding Exception."
-FONT_VERSION "0.1.0-12"
+FONT_VERSION "0.1.0-13"
 FONT_TYPE "Bitmap"
 FOUNDRY "GNU"
 FAMILY_NAME "Game Bit Mono"

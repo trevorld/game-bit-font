@@ -151,7 +151,7 @@ FontName: GameBitMonoRegular
 FullName: Game Bit Mono Regular
 FamilyName: Game Bit Mono
 Weight: Medium
-Comments: Game Bit Mono is a derivative of GNU Unifont. See <https://github.com/trevorld/game-bit-mono> for info on Game Bit Mono.  See <https://unifoundry.com/unifont.html> for info on GNU Unifont.  See <https://fontforge.org> for info on FontForge.
+Comments: Game Bit Duo and Game Bit Mono are derivatives of GNU Unifont. See <https://github.com/trevorld/game-bit-font> for info on Game Bit.  See <https://unifoundry.com/unifont.html> for info on GNU Unifont.  See <https://fontforge.org> for info on FontForge.
 Version: $version
 ItalicAngle: 0
 UnderlinePosition: -100
