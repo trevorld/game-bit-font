@@ -13,13 +13,14 @@ source("R/misc_dots.R")
 source("R/miscellaneous_symbols.R")
 source("R/enclosed_alphanumerics.R")
 source("R/braille_patterns.R")
+source("R/pua_domino_suits.R")
 source("R/ttf.R")
 
 # tar_option_set(debug = "enclosed_alphanumerics")
 # tar_option_set(debug = "mono_hex_file")
 tar_option_set(packages = c("bittermelon", "glue", "grid", "hexfont"))
 list(
-    tar_target(version, "0.1.0-13"),
+    tar_target(version, "0.1.0-14"),
     tar_target(mono_font_name, "Game Bit Mono"),
     tar_target(duo_font_name, "Game Bit Duo"),
     tar_target(copyright, "Copyright (C) 1998-2021 Trevor L Davis, Roman Czyborra, Paul Hardy, et al. License: SIL Open Font License version 1.1 and GPLv2+: GNU GPL version 2 or later <http://gnu.org/licenses/gpl.html> with the GNU Font Embedding Exception."),
@@ -66,6 +67,7 @@ list(
     tar_target(domino_tiles, unifont[block2ucp("Domino Tiles")]),
     tar_target(playing_cards, unifont[block2ucp("Playing Cards")]),
     tar_target(chess_symbols, unifont[block2ucp("Chess Symbols")]),
+    tar_target(pua_domino_suits, create_pua_domino_suits()),
     tar_target(duo_font, {
         duo_font <- c(basic_latin, # U+0020
                   latin1_supplement, # U+00A0
@@ -84,7 +86,8 @@ list(
                   mahjong_tiles, # U+1F000
                   domino_tiles, # U+1F030
                   playing_cards, # U+1F0A0
-                  chess_symbols # U+1FA00
+                  chess_symbols, # U+1FA00
+                  pua_domino_suits # U+FCA00
         )
         duo_font <- duo_font[ucp_sort(names(duo_font))]
         duo_font

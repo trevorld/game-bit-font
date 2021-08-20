@@ -68,16 +68,18 @@ The font will aim to support making diagrams for every game system supported by 
   + "Domino Tiles" block is included but not recommended for diagrams.
     Instead make 3x5 or 5x3 glyph dominoes.  
     Adjacent dominoes will share "Box Drawing" outline glyphs.
-  + 0 Pips: U+3000
-  + 1 Pip:  U+30FB 
-  + 2 Pips: U+280C / U+2821 
-  + 3 Pips: U+22F0 / U+22F1
-  + 4 Pips: U+282D
-  + 5 Pips: U+2059
-  + 6 Pips: U+283F / U+3000 U+20DB U+20E8
-  + 7 Pips: U+2059 U+302E U+1D16D / U+30FB U+20DB U+20E8
-  + 8 Pips: U+2812 U+20DB U+20E8
-  + 9 Pips: U+22EF U+20DB U+20E8
+    Use the following "Private Use Area" glyphs for pips:
+
+    - 0 Pips: U+FCA00
+    - 1 Pip:  U+FCA01
+    - 2 Pips: U+FCA02 / U+FCA12
+    - 3 Pips: U+FCA03 / U+FCA13
+    - 4 Pips: U+FCA04
+    - 5 Pips: U+FCA05
+    - 6 Pips: U+FCA06 / U+FCA16
+    - 7 Pips: U+FCA07 / U+FCA17
+    - 8 Pips: U+FCA08
+    - 9 Pips: U+FCA09
 
 * [X] `go <https://en.wikipedia.org/wiki/Go_(game)>`_
 
@@ -256,6 +258,14 @@ Intended for making game diagrams:
   + `View png of glyphs <png/1FA.png>`__
   + All code points.
   + Note this block is just "fairy" chess pieces and Xiangqi pieces
+
+* Private Use Area: Box Drawing Domino Suits
+
+  + `View png of glyphs <png/FCA.png>`__
+  + Domino suits from zero to nine in four rotations.
+  + Intended for use making domino tile diagrams with box drawing glyphs 
+    where each domino is represented by 3x5 (or 5x3) glyphs
+    with adjacent dominoes sharing their "border" glyphs.
 
 Roadmap
 -------
