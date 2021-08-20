@@ -88,6 +88,8 @@ The font will aim to support making diagrams for every game system supported by 
   + Several circled numbers and letters in "Dingbats", "Enclosed Alphanumerics",
     and "Enclosed Alphanumeric Supplement" blocks that can be used for annotation.
 
+    .. image:: png/go_mono.png
+
 * [X] `Icehouse pieces <https://en.wikipedia.org/wiki/Icehouse_pieces>`_
 
   + One may crudely refer to Icehouse pieces by using smaller squares and triangles from "Geometric Shapes" block
