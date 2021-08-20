@@ -81,6 +81,8 @@ The font will aim to support making diagrams for every game system supported by 
     - 8 Pips: U+FCA08
     - 9 Pips: U+FCA09
 
+    .. image:: png/dominoes_mono.png
+
 * [X] `go <https://en.wikipedia.org/wiki/Go_(game)>`_
 
   + U+25CF is "black circle" and U+25CB" is "white circle"
@@ -264,7 +266,7 @@ Intended for making game diagrams:
 * Private Use Area: Box Drawing Domino Suits
 
   + `View png of glyphs <png/FCA.png>`__
-  + Domino suits from zero to nine in four rotations.
+  + Domino suits from zero to nine in four rotations (top, right, bottom, left).
   + Intended for use making domino tile diagrams with box drawing glyphs 
     where each domino is represented by 3x5 (or 5x3) glyphs
     with adjacent dominoes sharing their "border" glyphs.
