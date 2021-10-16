@@ -1,0 +1,273 @@
+\documentclass{article}
+\usepackage{colortbl}
+\usepackage{fontspec}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+% \setmainfont{Game Bit Duo}
+\newfontfamily{\gb}{Game Bit Duo}
+
+\title{Game Bit {\gb \char"F800} Code Charts}
+\author{Trevor L Davis}
+
+%% begin.rcode setup, echo=FALSE, results='hide'
+library("bittermelon", warn.conflicts = FALSE)
+duo <- read_hex("../game-bit-duo.hex")
+combining <- readLines("../combining.txt")
+combining <- gsub("(.*):.*", "\\1", combining)
+
+make_table <- function(start, end) {
+    cat("\\begin{flushleft}\n")
+    cat("{\\renewcommand{\\arraystretch}{1.3}\n")
+    cat("\\begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}\n")
+    cat("\\hline\n")
+    cat("& 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & A & B & C & D & E & F \\\\\n")
+    cat("\\hline\n")
+    cat("\\hline\n")
+
+    ucp_start <- paste0("U+", start, "0")
+    ucp_end <- paste0("U+", end, "F")
+    ucp_range <- range2ucp(paste0(ucp_start, "..", ucp_end), FALSE)
+    table_range <- unique(gsub("^U\\+(.+)[0-9A-F]{1}", "\\1", ucp_range))
+    for (set in table_range) {
+       cat(set, " ")
+       for (char in bracer::expand_braces("{{0..9},{A..F}}", "R")) {
+          ucp <- paste0(set, char)
+          ucp_u <- paste0("U+", ucp)
+          if (ucp_u %in% names(duo)) {
+             if (ucp %in% combining)
+                 cat(paste0(" & \\cellcolor{lime} {\\gb \\char\"2800\\char\"", ucp, "}"))
+             else
+                 cat(paste0(" & {\\gb \\char\"", ucp, "}"))
+          } else {
+             cat(paste0(" & \\cellcolor{gray}"))
+          }
+       }
+       cat("\\\\\n")
+       cat("\\hline\n")
+    }
+    cat("\\end{tabular}\n")
+    cat("}\n")
+    cat("\\end{flushleft}\n")
+}
+%% end.rcode
+
+\begin{document}
+
+\maketitle
+
+Private Use Area (PUA) codepoints are reserved for individual fonts.  They have generic names and default properties in Unicode.  The PUA code chart names used in this document are my own invention and are not standardized.  Other than U+F800 (the Font Version Indicator) there is no difference between the Private Use Area characters of Game Bit Mono and Game Bit Duo.  We will mention which (non-PUA) codepoints are halfwidth characters in Game Bit Duo.
+
+\tableofcontents
+
+\section{Basic Latin}
+
+In Game Bit Duo these are halfwidth.
+
+%% begin.rcode basic_latin, echo=FALSE, results='asis'
+make_table("000", "007")
+%% end.rcode
+
+\section{Latin-1 Supplement}
+
+In Game Bit Duo these are halfwidth.
+
+%% begin.rcode latin1_supplement, echo=FALSE, results='asis'
+make_table("008", "00F")
+%% end.rcode
+
+\section{Latin Extended-A}
+
+In Game Bit Duo these are halfwidth.
+
+%% begin.rcode latin_extended_a, echo=FALSE, results='asis'
+make_table("010", "017")
+%% end.rcode
+
+\section{Combining Diacritical Marks}
+
+%% begin.rcode combining_diacritical_marks, echo=FALSE, results='asis'
+make_table("030", "036")
+%% end.rcode
+
+\section{Combining Diacritical Marks Supplement}
+
+%% begin.rcode combining_diacritical_marks_supplement, echo=FALSE, results='asis'
+make_table("1DC", "1DF")
+%% end.rcode
+
+\section{General Punctuation}
+
+%% begin.rcode general_punctuation, echo=FALSE, results='asis'
+make_table("200", "206")
+%% end.rcode
+
+\section{Superscripts and Subscripts}
+
+%% begin.rcode superscripts_and_subscripts, echo=FALSE, results='asis'
+make_table("207", "209")
+%% end.rcode
+
+In Game Bit Duo these are halfwidth.
+
+\section{Combining Diacritical Marks for Symbols}
+
+%% begin.rcode combining_diacritical_marks_for_symbols, echo=FALSE, results='asis'
+make_table("20D", "20F")
+%% end.rcode
+
+\section{Mathematical Operators}
+
+%% begin.rcode mathematical_operators, echo=FALSE, results='asis'
+make_table("220", "22F")
+%% end.rcode
+
+\section{Enclosed Alphanumerics}
+
+%% begin.rcode enclosed_alphanumerics, echo=FALSE, results='asis'
+make_table("246", "24F")
+%% end.rcode
+
+\section{Box Drawing}
+
+%% begin.rcode box_drawing, echo=FALSE, results='asis'
+make_table("250", "257")
+%% end.rcode
+
+\section{Block Elements}
+
+%% begin.rcode block_elements, echo=FALSE, results='asis'
+make_table("258", "259")
+%% end.rcode
+
+\section{Geometric Shapes}
+
+%% begin.rcode geometric_shapes, echo=FALSE, results='asis'
+make_table("25A", "25F")
+%% end.rcode
+
+\section{Miscellaneous Symbols}
+
+%% begin.rcode miscellaneous_symbols, echo=FALSE, results='asis'
+make_table("260", "26F")
+%% end.rcode
+
+\section{Dingbats}
+
+%% begin.rcode dingbats, echo=FALSE, results='asis'
+make_table("270", "27B")
+%% end.rcode
+
+\section{Braille Patterns}
+
+%% begin.rcode braille_patterns, echo=FALSE, results='asis'
+make_table("280", "28F")
+%% end.rcode
+
+\section{CJK Symbols and Punctuation}
+
+%% begin.rcode cjk_symbols_and_punctuation, echo=FALSE, results='asis'
+make_table("300", "303")
+%% end.rcode
+
+\section{Katakana}
+
+%% begin.rcode katakana, echo=FALSE, results='asis'
+make_table("30A", "30F")
+%% end.rcode
+
+\section{Private Use Area: Font Version}
+
+%% begin.rcode pua_font, echo=FALSE, results='asis'
+make_table("F80", "F80")
+%% end.rcode
+
+\section{Halfwidth and Fullwidth Forms}
+
+%% begin.rcode halfwidth_and_fullwidth_forms, echo=FALSE, results='asis'
+make_table("FF0", "FFE")
+%% end.rcode
+
+\section{Musical Symbols}
+
+%% begin.rcode musical_symbols, echo=FALSE, results='asis'
+make_table("1D10", "1D1F")
+%% end.rcode
+
+\section{Mahjong Tiles}
+
+%% begin.rcode mahjong_tiles, echo=FALSE, results='asis'
+make_table("1F00", "1F02")
+%% end.rcode
+
+\section{Domino Tiles}
+
+In Game Bit Duo the \emph{vertical} domiones are halfwidth.
+
+%% begin.rcode domino_tiles, echo=FALSE, results='asis'
+make_table("1F03", "1F09")
+%% end.rcode
+
+\section{Playing Cards}
+
+%% begin.rcode playing_cards, echo=FALSE, results='asis'
+make_table("1F0A", "1F0F")
+%% end.rcode
+
+\section{Enclosed Alphanumeric Supplement}
+
+%% begin.rcode enclosed_alphanumeric_supplement, echo=FALSE, results='asis'
+make_table("1F10", "1F1F")
+%% end.rcode
+
+\section{Chess Symbols}
+
+%% begin.rcode chess_symbols, echo=FALSE, results='asis'
+make_table("1FA0", "1FA6")
+%% end.rcode
+
+\section{Supplementary Private Use Area-A: Box Drawing Domino Suits}
+
+%% begin.rcode pua_box_drawing_domino_suits, echo=FALSE, results='asis'
+make_table("FCA0", "FCAF")
+%% end.rcode
+
+\section{Supplementary Private Use Area-A: Piecepack Suits and Ranks}
+
+%% begin.rcode pua_piecepack_suits_and_ranks, echo=FALSE, results='asis'
+make_table("FCB0", "FCD0")
+%% end.rcode
+
+\section{Supplementary Private Use Area-A: Combining Piecepack Characters}
+
+%% begin.rcode pua_combining_piecepack_characters, echo=FALSE, results='asis'
+make_table("FCD1", "FCDF")
+%% end.rcode
+
+\section{Supplementary Private Use Area-A: Pre-composed Combining Piecepack Characters}
+
+%% begin.rcode pua_precomposed_combining_piecepack_pieces, echo=FALSE, results='asis'
+make_table("FCE0", "FCED")
+%% end.rcode
+
+
+\section{Supplementary Private Use Area-A: Pre-composed Piecepack Pieces}
+
+%% begin.rcode pua_precomposed_piecepack_pieces, echo=FALSE, results='asis'
+make_table("FCEE", "FCFF")
+%% end.rcode
+
+\section{Supplementary Private Use Area-A: Box Drawing Appendix}
+
+%% begin.rcode pua_box_drawing, echo=FALSE, results='asis'
+make_table("FDD0", "FDDB")
+%% end.rcode
+
+\end{document}
