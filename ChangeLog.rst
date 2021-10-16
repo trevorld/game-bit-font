@@ -52,3 +52,6 @@ Differences from GNU Unifont
 
 * New "Musical Symbols" block "Musical Symbol Combining Augmentation Dot" was created.  
   Designed to serve as pip and/or directional mark.
+
+* New "Private Use Area" and "Supplementary Private Use Area-A" glyphs were created.
+  Some of these glyphs incorporate small ASCII letters/numbers from the public domain "Fixed" font (5x8 variant).
