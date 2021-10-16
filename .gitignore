@@ -3,7 +3,9 @@ game-bit-duo.sfd
 game-bit-duo.ttf
 game-bit-mono.sfd
 game-bit-mono.ttf
-Rakefile
 README.html
 _targets/
-tmp/
+png/0*.png
+png/1*.png
+png/2*.png
+png/F*.png
