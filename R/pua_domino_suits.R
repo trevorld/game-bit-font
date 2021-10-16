@@ -34,6 +34,12 @@ create_pua_domino_suits <- function() {
         bml[[bottom[i]]] <- bm_rotate(bml[[top[i]]], 180)
         bml[[left[i]]] <- bm_rotate(bml[[top[i]]], 270)
     }
+    ucp_normal <- bracer::expand_braces("U+FCA{0..3}{0..9}", "R")
+    ucp_inverted <- bracer::expand_braces("U+FCA{4..7}{0..9}", "R")
+    black <- bm_bitmap(matrix(1L, nrow = 16L, ncol = 16L))
+    for (i in seq_along(ucp_normal)) {
+        bml[[ucp_inverted[i]]] <- bm_mask(black, bml[[ucp_normal[i]]])
+    }
 
     bml
 }
