@@ -9,3 +9,9 @@ png/0*.png
 png/1*.png
 png/2*.png
 png/F*.png
+pdf/*.aux
+pdf/*.log
+pdf/*.out
+pdf/*.pdf
+pdf/*.toc
+pdf/*.xelatex

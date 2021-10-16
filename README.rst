@@ -28,6 +28,12 @@ Game Bit Mono
 * `game-bit-mono.hex <https://raw.githubusercontent.com/trevorld/game-bit-mono/main/game-bit-mono.hex>`_
 * `game-bit-mono.ttf <https://trevorldavis.com/share/fonts/game-bit-mono.ttf>`_
 
+PDF documentation
+~~~~~~~~~~~~~~~~~
+
+* `game-bit-code-charts.pdf <https://trevorldavis.com/share/fonts/game-bit-code-charts.pdf>`_
+* `game-bit-private-use-area.pdf <https://trevorldavis.com/share/fonts/game-bit-private-use-area.pdf>`_
+
 Intended Features
 -----------------
 
@@ -104,11 +110,12 @@ The font will aim to support making diagrams for every game system supported by 
 
 * [ ] `piecepack <https://www.ludism.org/ppwiki>`_
 
-  + [ ] playing cards expansion
-  + [ ] dual piecepacks expansion
-  + [ ] four seasons expansion?
+  + [X] base piecepack
+  + [X] playing cards expansion
+  + [X] dual piecepacks expansion
+  + [X] four seasons expansion?
   + [ ] elements expansion?
-  + [ ] stackpack subpack?
+  + [X] stackpack subpack?
   + [ ] piecepack matchsticks?
   + [ ] piecepack pyramids?
 
@@ -118,158 +125,6 @@ The font will aim to support making diagrams for every game system supported by 
   + "Geometric Shapes" block has a variety of shapes that can be used for abstracts
 
 * [ ] others?
-
-Font Coverage
--------------
-
-8x16 "Halfwidth"
-~~~~~~~~~~~~~~~~
-
-In **Game Bit Duo** these are halfwidth and intended for writing text.  In **Game Bit Mono** they are padded with extra horizontal whitespace to force them into a square shape and hence are not great for writing text.:
-
-* `Basic Latin <https://en.wikipedia.org/wiki/Basic_Latin_(Unicode_block)>`_ and `Latin-1 Supplement <https://en.wikipedia.org/wiki/Latin-1_Supplement_(Unicode_block)>`_
-
-  + `View png of glyphs <png/00.png>`__
-  + All non-control code points.
-
-* `Latin Extended-A <https://en.wikipedia.org/wiki/Latin_Extended-A>`__
-
-  + `View png of glyphs <png/01.png>`__
-  + All code points.
-
-* `Superscripts and Subscripts <https://en.wikipedia.org/wiki/Superscripts_and_Subscripts_(Unicode_block)>`_
-
-  + `View png of glyphs <png/20.png>`__
-  + All code points.
-
-* `Domino Tiles <https://en.wikipedia.org/wiki/Domino_Tiles>`_
-
-  + `View png of glyphs <png/1F0.png>`__
-  + All code points but horizontal dominoes are actually fullwidth
-
-16x16 "Fullwidth"
-~~~~~~~~~~~~~~~~~
-
-Intended for making game diagrams:
-
-* `Combining Diacritical Marks <https://en.wikipedia.org/wiki/Combining_Diacritical_Marks>`_
-
-  + `View png of glyphs <png/03.png>`__
-  + 5 combining dot code points
-
-* `Combining Diacritical Marks Supplement <https://en.wikipedia.org/wiki/Combining_Diacritical_Marks_Supplement>`__
-
-  + `View png of glyphs <png/1D.png>`__
-  + 2 combining dot code points (1 proposed in the `Unicode Pipeline <https://unicode.org/alloc/Pipeline.html>`__)
-
-* `General Punctuation <https://en.wikipedia.org/wiki/General_Punctuation>`_ and `Combining Diacritical Marks for Symbols <https://en.wikipedia.org/wiki/Combining_Diacritical_Marks_for_Symbols>`_
-
-  + `View png of glyphs <png/20.png>`__
-  + 7 code points:
-
-    - U+2059 "Five Dot Punctuation", U+20DB "Combining Three Dots Above", U+20E8 "Combining Triple Under Dot" for certain pips
-    - U+20DE "Combining Enclosing Square" can be used to make new dice (or tiles)
-    - U+20DD "Combining Enclosing Circle" can be used to make new circular pieces
-    - U+20DF "Combining Enclosing Diamonds" and U+20E4 "Combinin Enclosing Triangle" can be used to make new pieces
-
-* `Mathematical Operators <https://en.wikipedia.org/wiki/Mathematical_Operators_(Unicode_block)>`_
-
-  + `View png of glyphs <png/22.png>`__
-  + 3 code points:
-
-    - U+22EF, U+22F0, and U+22F1 are various ellipses used for pips
-
-* `Enclosed Alphanumerics <https://en.wikipedia.org/wiki/Enclosed_Alphanumerics>`__
-
-  + `View png of glyphs <png/24.png>`__
-  + 64 code points:
-
-    - 12 circled numbers
-    - 26 circled uppercase letters 
-    - 26 circled lowercase letters
-
-* `Box Drawing <https://en.wikipedia.org/wiki/Box_Drawing_(Unicode_block)>`_, `Block Elements <https://en.wikipedia.org/wiki/Block_Elements>`_, and `Geometric Shapes <https://en.wikipedia.org/wiki/Geometric_Shapes>`__
-
-  + `View png of glyphs <png/25.png>`__
-  + All "Box Drawing" and "Block Elements" code points.
-  + All code points in "Geometric Shapes"
-
-    - Shapes can be used for various abstracts.
-    - In particular use "Black Circle" and "White Circle" for go stones in diagrams.
-
-* `Miscellaneous Symbols <https://en.wikipedia.org/wiki/Miscellaneous_Symbols>`_
-
-  + `View png of glyphs <png/26.png>`__
-  + 26 code points:
-
-    - The six standard die faces.
-    - The four "go markers".
-    - The twelve basic chess ranks.
-    - The four checkers/draughts pieces.
-
-* `Dingbats <https://en.wikipedia.org/wiki/Dingbat#Unicode>`_
-
-  + `View png of glyphs <png/27.png>`__
-  + 30 code points:
-
-    - The "Dingbat circled digits"
-
-* `Braille Patterns <https://en.wikipedia.org/wiki/Braille_Patterns>`_
-
-  + `View png of glyphs <png/28.png>`_
-  + Just the (complete) 6-dot cell range.
-  + Dots spaced to also represent 2/4/6 pips on a die or domino.
-
-* `CJK Symbols and Punctuation <https://en.wikipedia.org/wiki/CJK_Symbols_and_Punctuation>`_ and `Katakana <https://en.wikipedia.org/wiki/Katakana>`__
-
-  + `View png of glyphs <png/30.png>`__
-  + Four code points:
-
-    - U+3000 "Ideographic Space" is the proper fullwidth space.
-    - U+302E "Hangul Single Dot Tone Mark" is only combining left dot.
-    - U+302F "Hangul Double Dot Tone Mark" is only combining left double dots.
-    - U+30FB "Katakana Middle Dot" is the fullwidth middle dot.
-
-* `Halfwidth and Fullwidth Forms <https://en.wikipedia.org/wiki/Halfwidth_and_Fullwidth_Forms_(Unicode_block)>`_
-
-  + `View png of glyphs <png/FF.png>`__
-  + Just the fullwidth versions of the ASCII characters.
-
-* `Musical Symbols <https://en.wikipedia.org/wiki/Musical_Symbols_(Unicode_block)>`_
-
-  + `View png of glyphs <png/1D1.png>`__
-  + One code point:
-
-    - U+1D16D "Musical Symbol Combining Augmentation Dot" is only combining right dot.
-
-* `Mahjong Tiles <https://en.wikipedia.org/wiki/Mahjong_Tiles_(Unicode_block)>`__, `Domino Tiles <https://en.wikipedia.org/wiki/Domino_Tiles>`_, and `Playing Cards <https://en.wikipedia.org/wiki/Playing_cards_in_Unicode>`__
-
-  + `View png of glyphs <png/1F0.png>`__
-  + All code points but vertical dominoes are actually halfwidth
-
-* `Enclosed Alphanumeric Supplement <https://en.wikipedia.org/wiki/Enclosed_Alphanumeric_Supplement>`__
-
-  + `View png of glyphs <png/1F1.png>`__
-  + 80 code points:
-
-    - 26 squared uppercase letters
-    - 26 negative circled uppercase letters
-    - 26 negative squared uppercase letters
-    - 2 circled zeroes
-
-* `Chess Symbols <https://en.wikipedia.org/wiki/Chess_Symbols>`_
-
-  + `View png of glyphs <png/1FA.png>`__
-  + All code points.
-  + Note this block is just "fairy" chess pieces and Xiangqi pieces
-
-* Private Use Area: Box Drawing Domino Suits
-
-  + `View png of glyphs <png/FCA.png>`__
-  + Domino suits from zero to nine in four rotations (top, right, bottom, left).
-  + Intended for use making domino tile diagrams with box drawing glyphs 
-    where each domino is represented by 3x5 (or 5x3) glyphs
-    with adjacent dominoes sharing their "border" glyphs.
 
 Roadmap
 -------
@@ -333,23 +188,15 @@ Roadmap
 * Private Use Area
 
   + Game bits in the PUA of fonts like `Quivira <http://www.quivira-font.com/>`_ or `Catrinity <http://catrinity-font.de/>`_?
-  + [ ] Pre-composed piecepack pieces
-
-    - Where should they go in the PUA?
-    - How many should be pre-composed?
-    - Should also have slots for semantic stuff Unicode will probably never directly support like "Piecepack Null Rank"
-      that would make it easier for other future piecepack fonts to offer more customized piecepack diagram appearances?
-    - Should whip up a proposal and then post in piecepack forums soliciting feedback.
-
-* `A list of glyphs used by ppgames::cat_piece() <https://github.com/piecepackr/ppgames/blob/master/raw-data/sysdata.R>`_
-* `A list of Unicode piecepack symbols <https://trevorldavis.com/piecepackr/unicode-piecepack-symbols.html>`_
+  + [X] Domino Suits (Box Drawing)
+  + [X] Pre-composed piecepack pieces
 
 To build output from scratch
 ----------------------------
 
-In R_::
+In a (i.e. bash) shell::
 
-    targets::tar_make()
+    rake
 
 Build dependencies
 ~~~~~~~~~~~~~~~~~~
@@ -358,7 +205,7 @@ Build dependencies
 
   * Within R install R package dependencies::
 
-      install.packages(c("glue", "remotes", "targets"))
+      install.packages(c("bracer", "glue", "remotes", "targets", "withr"))
       remotes::install_github("trevorld/bittermelon")
       remotes::install_github("trevorld/hexfont")
 
@@ -371,6 +218,8 @@ Build dependencies
       + May need to install ``libgd-dev``
 
 * `FontForge <https://fontforge.org/en-US/>`__
+* `Rake <https://ruby.github.io/rake/>`__
+* `Xetex <https://tug.org/xetex/>`__
 
 GNU Unifont
 -----------

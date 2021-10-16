@@ -1,0 +1,129 @@
+\documentclass{article}
+\usepackage{colortbl}
+\usepackage{fontspec}
+\usepackage{longtable}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\newfontfamily{\gb}{Game Bit Duo}
+
+\title{Game Bit {\gb \char"F800} Private Use Area Characters}
+\author{Trevor L Davis}
+
+%% begin.rcode setup, echo=FALSE, results='hide'
+library("bittermelon", warn.conflicts = FALSE)
+duo <- read_hex("../game-bit-duo.hex")
+combining <- readLines("../combining.txt")
+combining <- gsub("(.*):.*", "\\1", combining)
+descriptions <- read.csv("../game-bit-pua.csv")
+descriptions$comment <- ifelse(is.na(descriptions$comment), "", descriptions$comment)
+
+descriptive_names <- as.list(descriptions$descriptive_name)
+comments <- as.list(descriptions$comment)
+names(descriptive_names) <- descriptions$hex
+names(comments) <- descriptions$hex
+
+make_table <- function(start, end) {
+    cat("{\\renewcommand{\\arraystretch}{1.3}\n")
+    cat("\\begin{longtable}[l]{llll}\n")
+
+    ucp_start <- paste0("U+", start)
+    ucp_end <- paste0("U+", end)
+    ucp_range <- range2ucp(paste0(ucp_start, "..", ucp_end), FALSE)
+    for (ucp_u in ucp_range) {
+       hex <- gsub("U\\+", "", ucp_u)
+       if (ucp_u %in% names(duo)) {
+           cat(hex, " ")
+           if (hex %in% combining) {
+               # cat(paste0(" & \\cellcolor{lime} {\\gb \\char\"2800\\char\"", hex, "}"))
+               cat(paste0(" & \\cellcolor{lime} {\\gb \\char\"2800\\char\"", hex, "}"))
+           } else {
+               cat(paste0(" & {\\gb \\char\"", hex, "}"))
+           }
+           cat(paste0(" & ", descriptive_names[[hex]], " & ", comments[[hex]]))
+           cat("\\\\\n")
+       }
+    }
+    cat("\\end{longtable}\n")
+    cat("}\n")
+}
+%% end.rcode
+
+\begin{document}
+
+\maketitle
+
+Private Use Area codepoints are reserved for individual fonts.  They have generic names and default properties in Unicode.  The character names used in this document are my own invention and are not standardized.  Other than U+F800 (the Font Version Indicator) there is no difference between the Private Use Area characters of Game Bit Mono and Game Bit Duo.
+
+\tableofcontents
+
+\section{Private Use Area: Font Version}
+
+%% begin.rcode font_version, echo=FALSE, results='asis'
+make_table("F800", "F800")
+%% end.rcode
+
+\section{Supplementary Private Use Area-A: Box Drawing Domino Suits}
+
+``Domino Tiles'' block is included in Game Bit but not recommended for diagrams.
+Instead make 3x5 or 5x3 glyph dominoes.  
+Adjacent dominoes will share ``Box Drawing'' outline glyphs.
+Use the following ``Private Use Area'' glyphs for domino suits.
+Game Bit uses standard pips for domino suits (some dominoes use alternative symbols such as numerical digits):
+
+%% begin.rcode dominoes, echo=FALSE, results='asis'
+make_table("FCA00", "FCA79")
+%% end.rcode
+
+\section{Supplementary Private Use Area-A: Piecepack Suits and Ranks}
+
+Intended to be used with the ``Supplementary Private Use Area-A: Combining Piecepack Characters'' as well as ``Box Drawing'' characters to make piecepack game diagrams.  The ``Small'' versions are intended to be used with the ``Supplementary Private Use Area-A: Combining Piecepack Characters'' to create piecepack coins, dice, pawns, etc. whereas the larger versions are intended to be used with ``Box Drawing'' characters to make piecepack tiles.
+
+%% begin.rcode piecepack_suits_and_ranks, echo=FALSE, results='asis'
+make_table("FCB00", "FCD0F")
+%% end.rcode
+
+\section{Supplementary Private Use Area-A: Combining Piecepack Characters}
+
+Intended to be used with the ``Supplementary Private Use Area-A: Combining Piecepack Characters'' as well as ``Box Drawing'' characters to make piecepack game diagrams.
+
+%% begin.rcode piecepack_combining, echo=FALSE, results='asis'
+make_table("FCD10", "FCDFF")
+%% end.rcode
+
+\section{Supplementary Private Use Area-A: Pre-composed Enclosing Piecepack Characters}
+
+Some of my commonly used software can render a base character plus a single combining or enclosing character but cannot correctly render a base character plus a combining character plus an enclosing character.  Here we precompose certain combining/enclosing characters into a single enclosing character for use with such software.  Note unlike in ``Supplementary Private Use Area-A: Pre-composed Piecepack Pieces'' (which follows the ``Anatomy of a Piecepack'' standard) in this block my pre-composed enclosing die faces will have a suit symbol (which is more color-blind friendly).  Note when making piecepack game diagrams I use ``Box Drawing'' characters plus suit/rank symbols from ``Supplementary Private Use Area-A: Piecepack Suits and Ranks'' to render piecepack tiles so there is no possible confusion of a die with a tile in these diagrams.
+
+%% begin.rcode piecepack_precomposed_combining, echo=FALSE, results='asis'
+make_table("FCE00", "FCEDF")
+%% end.rcode
+
+\section{Supplementary Private Use Area-A: Pre-composed Piecepack Pieces}
+
+These piecepack piece characters are pre-composed using the ``Supplementary Private Use Area-A: Piecepack Suits and Ranks'' as well as ``Supplementary Private Use Area-A: Combining Piecepack Characters''.  These pre-composed piecepack pieces follow the original ``Anatomy of a Piecepack'' standard. In particular unlike several piecepack designs it does use suits as aces and doesn't add a color-blind-friendly suit symbol on die faces.
+
+%% begin.rcode piecepack_precomposed_pieces, echo=FALSE, results='asis'
+make_table("FCEE0", "FCFFF")
+%% end.rcode
+
+\section{Supplementary Private Use Area-A: Box Drawing Appendix}
+
+This appendix provides \emph{inverted} variants as well as ``matted heavy'' line variants intended to be used in drawing domino/piecepack tiles.  The border of pieces
+are represented by ``light'' lines whereas lines internal of pieces are represented by ``heavy'' lines.
+When an internal ``heavy'' line reaches the border (of its own piece) one uses a ``matted'' variant. When a ``heavy'' line reaches the border of a different piece (placed on top of its own piece) use a normal ``heavy'' line.
+(in particular this makes it easier to distinguish adjacent piecepack tile backs).  ``light'' (border) lines are always ``black'' while inverted ``heavy'' (internal) lines are ``white''.
+
+%% begin.rcode box_drawing, echo=FALSE, results='asis'
+make_table("FDD00", "FDDFF")
+%% end.rcode
+
+
+\end{document}
