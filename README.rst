@@ -220,6 +220,7 @@ Build dependencies
 * `FontForge <https://fontforge.org/en-US/>`__
 * `Rake <https://ruby.github.io/rake/>`__
 * `Xetex <https://tug.org/xetex/>`__
+* `Docutils <https://docutils.sourceforge.io/>`__
 
 GNU Unifont
 -----------

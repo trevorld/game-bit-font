@@ -167,7 +167,7 @@ list(
         {
             ucp <- names(duo_font) |> unique()
             pages <- substr(ucp, 3, nchar(ucp) - 2L) |> unique()
-            png_files <- paste0("png/", pages, ".png")
+            png_files <- paste0("png/code_charts/", pages, ".png")
             for (i in seq_along(pages)) {
                 system2("perl",
                         c("bin/unihex2png", "-i", duo_hex_file,

@@ -5,10 +5,10 @@ game-bit-mono.sfd
 game-bit-mono.ttf
 README.html
 _targets/
-png/0*.png
-png/1*.png
-png/2*.png
-png/F*.png
+png/code_charts/*.png
+png/code_charts/*.png
+png/code_charts/*.png
+png/code_charts/*.png
 pdf/*.aux
 pdf/*.log
 pdf/*.out
