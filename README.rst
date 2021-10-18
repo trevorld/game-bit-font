@@ -114,8 +114,8 @@ Piecepack
 Miscellaneous abstracts
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-  + Can use any of the above game pieces.
-  + "Geometric Shapes" block has a variety of shapes that can be also be used for abstracts.
++ Can use any of the above game pieces.
++ "Geometric Shapes" block has a variety of shapes that can be also be used for abstracts.
 
 To re-build fonts/documentation from scratch
 --------------------------------------------
