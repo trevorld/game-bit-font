@@ -108,16 +108,23 @@ The font will aim to support making diagrams for every game system supported by 
     + Number of dots beneath indicate number of pips on the pyramid.
     + This is enough to visualize certain abstracts like `Martian Chess <https://www.looneylabs.com/rules/martian-chess>`__ and `Pikemen <https://www.icehousegames.org/wiki/index.php?title=Pikemen>`__ but not enough to visualize games where you stack pyramids on one another.
 
-* [ ] `piecepack <https://www.ludism.org/ppwiki>`_
+* [X] `piecepack <https://www.ludism.org/ppwiki>`_
 
   + [X] base piecepack
   + [X] playing cards expansion
   + [X] dual piecepacks expansion
-  + [X] four seasons expansion?
-  + [ ] elements expansion?
-  + [X] stackpack subpack?
-  + [ ] piecepack matchsticks?
+  + [X] four seasons expansion
+  + [X] stackpack subpack
   + [ ] piecepack pyramids?
+
+  + Several Private Use Area blocks of piecepack suits, ranks, and combining characters:
+
+    - black/white piecepack suits, black/white french suits, four seasons suits and twelve piecepack ranks in big/small sizes
+    - combining directional marks and enclosing pieces
+    - supports normal/inverted pieces in four rotations
+    - supports large/small components (i.e. a `piecepack stackpack <https://www.ludism.org/ppwiki/StackPack>`__).
+
+    .. image:: png/piecepack-four-seasons-chess_mono.png
 
 * [X] miscellaneous abstracts
 
@@ -205,9 +212,10 @@ Build dependencies
 
   * Within R install R package dependencies::
 
-      install.packages(c("bracer", "glue", "remotes", "targets", "withr"))
+      install.packages(c("bracer", "glue", "remotes", "targets", "tibble", "withr"))
       remotes::install_github("trevorld/bittermelon")
       remotes::install_github("trevorld/hexfont")
+      remotes::install_github("piecepackr/ppgames")
 
 * `Perl <https://www.perl.org/>`_
 

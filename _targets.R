@@ -3,12 +3,15 @@
 # unifont = tar_read("unifont")
 
 library("targets")
-if (packageVersion("bittermelon") < "0.2.0-9")
+if (packageVersion("bittermelon") < "0.2.0-12")
     tar_throw_validate("{bittermelon} too old.  Please upgrade.")
+if (packageVersion("ppgames") < "0.6.2-20")
+    tar_throw_validate("{ppgames} too old.  Please upgrade.")
 
-source("R/combining_diacritical_marks_for_symbols.R")
 source("R/box_drawing.R")
+source("R/combining_diacritical_marks_for_symbols.R")
 source("R/geometric_shapes.R")
+source("R/make_examples.R")
 source("R/misc_dots.R")
 source("R/miscellaneous_symbols.R")
 source("R/enclosed_alphanumerics.R")
@@ -21,7 +24,8 @@ source("R/ttf.R")
 
 # tar_option_set(debug = "enclosed_alphanumerics")
 # tar_option_set(debug = "mono_hex_file")
-tar_option_set(packages = c("bittermelon", "bracer", "glue", "grid", "hexfont", "withr"))
+tar_option_set(packages = c("bittermelon", "bracer", "glue", "grid", "hexfont",
+                            "ppgames", "tibble", "withr"))
 list(
     tar_target(version, "0.1.1"),
     tar_target(fixed_4x6, read_yaff(system.file("fonts/fixed/4x6.yaff.gz", package = "bittermelon"))),
@@ -162,19 +166,27 @@ list(
         },
         format = "file"
     ),
+    tar_target(combining_ucp,
+               {
+                   df <- read.delim(combining_file, sep = ":", header = FALSE)
+                   paste0("U+", df[, 1])
+    }),
+    tar_target(example_pngs,
+               make_examples(mono_font, duo_font, combining_ucp),
+               format = "file"),
     tar_target(
-        png_files,
+        code_chart_pngs,
         {
             ucp <- names(duo_font) |> unique()
             pages <- substr(ucp, 3, nchar(ucp) - 2L) |> unique()
-            png_files <- paste0("png/code_charts/", pages, ".png")
+            code_chart_pngs <- paste0("png/code_charts/", pages, ".png")
             for (i in seq_along(pages)) {
                 system2("perl",
                         c("bin/unihex2png", "-i", duo_hex_file,
                           "-p", pages[i],
-                          "-o", png_files[i]))
+                          "-o", code_chart_pngs[i]))
             }
-            png_files
+            code_chart_pngs
         },
         format = "file"
     ),

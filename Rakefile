@@ -6,6 +6,7 @@ task :default => "README.html"
 
 file "README.html" => "README.rst"
 file "README.html" => "game-bit-duo.ttf"
+file "README.html" => Rake::FileList["png/*.png"]
 file "README.html" do
   sh "rst2html README.rst README.html"
 end
