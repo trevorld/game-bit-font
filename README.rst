@@ -54,62 +54,62 @@ The font will aim to support making diagrams for every game system supported by 
 Checkers
 ~~~~~~~~
 
-  + U+26C0 through U+26C3 are "standard" checkers/draughts pieces.
-  + As an alternative U+25CF is "black circle" and U+25CB" is "white circle"
-    while U+24C0 and U+1F15A are circled uppercase K's.
++ U+26C0 through U+26C3 are "standard" checkers/draughts pieces.
++ As an alternative U+25CF is "black circle" and U+25CB" is "white circle"
+  while U+24C0 and U+1F15A are circled uppercase K's.
 
 Chess
 ~~~~~
 
-  + U+2654 through U+265F are "standard" chess pieces
-  + *Chess Symbols* block has Xiangqi and "fairy" chess pieces
++ U+2654 through U+265F are "standard" chess pieces
++ *Chess Symbols* block has Xiangqi and "fairy" chess pieces
 
 Dice
 ~~~~
 
-  + U+2680 through U+2685 are "standard" die faces
-  + Can use U+20DE "Combining Enclosing Square" to make non-standard die faces
-  + Additional (especially piecepack) dice support available in the Private Use Area.
++ U+2680 through U+2685 are "standard" die faces
++ Can use U+20DE "Combining Enclosing Square" to make non-standard die faces
++ Additional (especially piecepack) dice support available in the Private Use Area.
 
 Dominoes
 ~~~~~~~~
 
-  + "Domino Tiles" block is included but not recommended for diagrams.
-    Instead make 3x5 or 5x3 glyph dominoes.  
-    Adjacent dominoes will share "Box Drawing" outline glyphs.
-  + Includes "Private Use Area" glyphs for 0-9 pips.
++ "Domino Tiles" block is included but not recommended for diagrams.
+  Instead make 3x5 or 5x3 glyph dominoes.  
+  Adjacent dominoes will share "Box Drawing" outline glyphs.
++ Includes "Private Use Area" glyphs for 0-9 pips.
 
-    .. image:: png/dominoes_mono.png
+  .. image:: png/dominoes_mono.png
 
 Go
 ~~
 
-  + U+25CF is "black circle" and U+25CB" is "white circle"
-  + U+2686 through U+2689 are "Go markers"
-  + Several circled numbers and letters in "Dingbats", "Enclosed Alphanumerics",
-    and "Enclosed Alphanumeric Supplement" blocks that can be used for annotation.
++ U+25CF is "black circle" and U+25CB" is "white circle"
++ U+2686 through U+2689 are "Go markers"
++ Several circled numbers and letters in "Dingbats", "Enclosed Alphanumerics",
+  and "Enclosed Alphanumeric Supplement" blocks that can be used for annotation.
 
-    .. image:: png/go_mono.png
+  .. image:: png/go_mono.png
 
 Piecepack
 ~~~~~~~~~
 
-  + Several Private Use Area blocks of piecepack suits, ranks, and combining characters:
++ Several Private Use Area blocks of piecepack suits, ranks, and combining characters:
 
-    - black/white piecepack suits, black/white french suits, four seasons suits and twelve piecepack ranks in big/small sizes
-    - combining directional marks and enclosing pieces
-    - supports normal/inverted pieces in four rotations
-    - supports large/small components (i.e. a `piecepack stackpack <https://www.ludism.org/ppwiki/StackPack>`__).
+  - black/white piecepack suits, black/white french suits, four seasons suits and twelve piecepack ranks in big/small sizes
+  - combining directional marks and enclosing pieces
+  - supports normal/inverted pieces in four rotations
+  - supports large/small components (i.e. a `piecepack stackpack <https://www.ludism.org/ppwiki/StackPack>`__).
 
-    .. image:: png/piecepack-backgammon_duo.png
-        :width: 90%
-        :alt: Backgammon setup with a piecepack
+  .. image:: png/piecepack-backgammon_duo.png
+      :width: 90%
+      :alt: Backgammon setup with a piecepack
 
-    .. image:: png/piecepack-four-seasons-chess_mono.png
-        :alt: Four seasons chess setup with a piecepack
+  .. image:: png/piecepack-four-seasons-chess_mono.png
+      :alt: Four seasons chess setup with a piecepack
 
-    .. image:: png/piecepack-xiangqi_duo.png
-        :alt: Xiangqi setup with a piecepack
+  .. image:: png/piecepack-xiangqi_duo.png
+      :alt: Xiangqi setup with a piecepack
 
 Miscellaneous abstracts
 ~~~~~~~~~~~~~~~~~~~~~~~
