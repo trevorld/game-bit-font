@@ -77,7 +77,7 @@ Dominoes
 + "Domino Tiles" block is included but not recommended for diagrams.
   Instead make 3x5 or 5x3 glyph dominoes.  
   Adjacent dominoes will share "Box Drawing" outline glyphs.
-+ Includes "Private Use Area" glyphs for 0-9 pips.
++ Includes "Private Use Area" glyphs for 0-18 pips.
 
   .. image:: png/dominoes_mono.png
 

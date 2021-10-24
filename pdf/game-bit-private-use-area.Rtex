@@ -79,7 +79,7 @@ Use the following ``Private Use Area'' glyphs for domino suits.
 Game Bit uses standard pips for domino suits (some dominoes use alternative symbols such as numerical digits):
 
 %% begin.rcode dominoes, echo=FALSE, results='asis'
-make_table("FCA00", "FCA79")
+make_table("FCA00", "FCAFF")
 %% end.rcode
 
 \section{Supplementary Private Use Area-A: Piecepack Suits and Ranks}

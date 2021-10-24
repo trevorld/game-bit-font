@@ -5,7 +5,7 @@
 library("targets")
 if (packageVersion("bittermelon") < "0.2.0-12")
     tar_throw_validate("{bittermelon} too old.  Please upgrade.")
-if (packageVersion("ppgames") < "0.6.2-20")
+if (packageVersion("ppgames") < "0.6.2-21")
     tar_throw_validate("{ppgames} too old.  Please upgrade.")
 
 source("R/box_drawing.R")
@@ -27,7 +27,7 @@ source("R/ttf.R")
 tar_option_set(packages = c("bittermelon", "bracer", "glue", "grid", "hexfont",
                             "ppgames", "tibble", "withr"))
 list(
-    tar_target(version, "0.1.1"),
+    tar_target(version, "0.2.0"),
     tar_target(fixed_4x6, read_yaff(system.file("fonts/fixed/4x6.yaff.gz", package = "bittermelon"))),
     tar_target(fixed_5x8, read_yaff(system.file("fonts/fixed/5x8.yaff.gz", package = "bittermelon"))),
     tar_target(mono_font_name, "Game Bit Mono"),

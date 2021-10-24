@@ -1,5 +1,31 @@
+Game Bit v0.2
+=============
+
+Breaking Changes
+----------------
+
+* Some glyphs in the "Supplementary Private Use Area-A: Box Drawing Domino Suits"
+  were moved around to accommodate double-eighteen dominoes.
+
+New features
+------------
+
+* Extend dominoes support to double-eighteen dominoes (#23).
+
+Game Bit v0.1
+=============
+
+* Initial version with basic support for:
+
+  * (Standard d6) dice (#7)
+  * Checkers (#8)
+  * Chess
+  * Dominoes (double-nine) (#9)
+  * Go (#6)
+  * Piecepack (#12)
+
 Differences from GNU Unifont
-----------------------------
+============================
 
 * Covers much fewer glyphs than GNU Unifont
 * If not mentioned below then the glyph is probably unchanged from GNU Unifont

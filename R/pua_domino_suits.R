@@ -1,5 +1,6 @@
 create_pua_domino_suits <- function() {
-    dot_c <- bm_bitmap(matrix(0L, nrow = 16L, ncol = 16L))
+    empty <- bm_bitmap(matrix(0L, nrow = 16L, ncol = 16L))
+    dot_c <- empty
     dot_c[8:9, 7:10] <- 1L
     dot_c[7:10, 8:9] <- 1L
 
@@ -25,17 +26,59 @@ create_pua_domino_suits <- function() {
     bml[["U+FCA08"]] <- eight <- six |> bm_overlay(dot_t) |> bm_overlay(dot_b)
     bml[["U+FCA09"]] <- nine <- bm_overlay(eight, dot_c)
 
+    left_four <- empty
+    left_four[c(2:3, 6:7, 10:11, 14:15), c(2:3)] <- 1L
+
+    ten <- bm_overlay(left_four, bm_flip(left_four, "h"))
+    ten[c(2:3, 14:15), c(8:9)] <- 1L
+
+    eleven <- ten
+    eleven[8:9, 8:9] <- 1L
+
+    twelve <- Reduce(bm_overlay, list(left_four,
+                                      bm_flip(left_four, "h"),
+                                      bm_shift(left_four, right = 6L)))
+
+    bottom_four <- bm_rotate(left_four, 270)
+    bottom_twelve <- Reduce(bm_overlay, list(bottom_four,
+                                             bm_shift(bottom_four, top = 4L),
+                                             bm_shift(bottom_four, top = 8L)))
+    thirteen <- fourteen <- bottom_twelve
+    thirteen[14:15, 8:9] <- 1L
+    fourteen[14:15, c(4:5, 12:13)] <- 1L
+    fifteen <- bm_overlay(thirteen, fourteen)
+
+    sixteen <- bm_overlay(bottom_twelve, bm_shift(bottom_four, top = 12L))
+
+    sixteen_split <- Reduce(bm_overlay, list(left_four,
+                                             bm_shift(left_four, right = 3L),
+                                             bm_shift(left_four, right = 9L),
+                                             bm_shift(left_four, right = 12L)))
+    seventeen <- eighteen <- sixteen_split
+    seventeen[8:9, 8:9] <- 1L
+    eighteen[c(4:5, 12:13), 8:9] <- 1L
+
+    bml[["U+FCA0A"]] <- ten
+    bml[["U+FCA0B"]] <- eleven
+    bml[["U+FCA0C"]] <- twelve
+    bml[["U+FCA0D"]] <- thirteen
+    bml[["U+FCA0E"]] <- fourteen
+    bml[["U+FCA0F"]] <- fifteen
+    bml[["U+FCA10"]] <- sixteen
+    bml[["U+FCA11"]] <- seventeen
+    bml[["U+FCA12"]] <- eighteen
+
     top <- names(bml)
-    right <- range2ucp("U+FCA10..U+FCA19", omit_unnamed = FALSE)
-    bottom <- range2ucp("U+FCA20..U+FCA29", omit_unnamed = FALSE)
-    left <- range2ucp("U+FCA30..U+FCA39", omit_unnamed = FALSE)
+    right <- range2ucp("U+FCA13..U+FCA25", omit_unnamed = FALSE)
+    bottom <- range2ucp("U+FCA26..U+FCA38", omit_unnamed = FALSE)
+    left <- range2ucp("U+FCA39..U+FCA4B", omit_unnamed = FALSE)
     for (i in seq_along(top)) {
         bml[[right[i]]] <- bm_rotate(bml[[top[i]]], 90)
         bml[[bottom[i]]] <- bm_rotate(bml[[top[i]]], 180)
         bml[[left[i]]] <- bm_rotate(bml[[top[i]]], 270)
     }
-    ucp_normal <- bracer::expand_braces("U+FCA{0..3}{0..9}", "R")
-    ucp_inverted <- bracer::expand_braces("U+FCA{4..7}{0..9}", "R")
+    ucp_normal <- range2ucp("U+FCA00..U+FCA4B", omit_unnamed = FALSE)
+    ucp_inverted <- range2ucp("U+FCA4C..U+FCA97", omit_unnamed = FALSE)
     black <- bm_bitmap(matrix(1L, nrow = 16L, ncol = 16L))
     for (i in seq_along(ucp_normal)) {
         bml[[ucp_inverted[i]]] <- bm_mask(black, bml[[ucp_normal[i]]])
